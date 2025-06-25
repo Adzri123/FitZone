@@ -13,7 +13,7 @@
 
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: url('images/about.png') no-repeat center center fixed;
+      background: url('assets/images/about.png') no-repeat center center fixed;
       background-size: cover;
       color: white;
       position: relative;
