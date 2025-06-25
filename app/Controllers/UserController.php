@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\UserModel;
 use CodeIgniter\HTTP\ResponseInterface;
 
 class UserController extends BaseController
@@ -30,7 +31,7 @@ class UserController extends BaseController
             ]);
 
             if ($user['role'] == 'admin') {
-                return redirect()->to('/dashboard/admin');
+                return redirect()->to('admin/dashboard');
             } else {
                 return redirect()->to('/dashboard/user');
             }

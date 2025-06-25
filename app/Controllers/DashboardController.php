@@ -3,18 +3,19 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\UserModel;
 
 
 class DashboardController extends BaseController
 {
     public function admin()
     {
-         // Check if logged in and is user
+        // Check if logged in and is user
         if (!session()->get('isLoggedIn') || session()->get('role') !== 'admin') {
             return redirect()->to('/login');
         }
 
-        return view('/dashboard/admin');
+        return view('admin/dashboard');
     }
 
 
@@ -26,5 +27,17 @@ class DashboardController extends BaseController
         }
 
         return view('/dashboard/member');
+    }
+
+    public function dashboard()
+    {
+        return view('admin/dashboard');
+    }
+
+    public function manageAdmin()
+    {
+        $adminModel = new UserModel();
+        $data['admins'] = $adminModel->where('role', 'admin')->findAll();
+        return view('admin/manage_admin', $data);
     }
 }

@@ -13,8 +13,8 @@
             FITZONE
         </div>
         <nav class="mt-4">
-            <a href="dashboard.php" class="block py-2.5 px-4 hover:bg-gray-100">Dashboard</a>
-            <a href="manage_admin.php" class="block py-2.5 px-4 bg-gray-100 font-semibold">Manage Admin</a>
+            <a href="/dashboard/admin" class="block py-2.5 px-4 hover:bg-gray-100">Dashboard</a>
+            <a href="/admin/manage-admin" class="block py-2.5 px-4 bg-gray-100 font-semibold">Manage Admin</a>
             <a href="#" class="block py-2.5 px-4 hover:bg-gray-100">Manage Merchandise</a>
             <a href="#" class="block py-2.5 px-4 hover:bg-gray-100">Manage Stock</a>
         </nav>

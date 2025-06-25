@@ -15,8 +15,8 @@
     <aside class="w-64 bg-white shadow-md h-full flex-shrink-0">
         <div class="p-4 text-2xl font-bold border-b border-gray-200">FITZONE</div>
         <nav class="mt-4">
-            <a href="dashboard.php" class="block py-2.5 px-4 bg-gray-100 font-semibold">Dashboard</a>
-            <a href="manage_admin.php" class="block py-2.5 px-4 hover:bg-gray-100">Manage Admin</a>
+            <a href="/dashboard/admin" class="block py-2.5 px-4 bg-gray-100 font-semibold">Dashboard</a>
+            <a href="/admin/manage-admin" class="block py-2.5 px-4 hover:bg-gray-100">Manage Admin</a>
             <a href="#" class="block py-2.5 px-4 hover:bg-gray-100">Manage Merchandise</a>
             <a href="#" class="block py-2.5 px-4 hover:bg-gray-100">Manage Stock</a>
         </nav>
