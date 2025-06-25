@@ -13,4 +13,9 @@ class Home extends BaseController
     {
         return view('about');
     }
+
+    public function membership()
+    {
+        return view('membership'); // Membership page view
+    }
 }

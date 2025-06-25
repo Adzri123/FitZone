@@ -12,12 +12,12 @@
   <nav>
     <div class="logo">FITZONE</div>
     <ul>
-      <li><a href="welcome_message.php">HOME</a></li>
-      <li><a href="about.php">ABOUT</a></li>
-      <li><a href="contact.php">CONTACT US</a></li>
-      <li><a href="membership.php">MEMBERSHIP</a></li>
-      <li><a href="login.php">LOGIN</a></li>
-      <li><a href="register.php">REGISTER</a></li>
+      <li><a href="#">HOME</a></li>
+      <li><a href="/about">ABOUT</a></li>
+      <li><a href="#">CONTACT US</a></li>
+      <li><a href="/membership">MEMBERSHIP</a></li>
+      <li><a href="/login">LOGIN</a></li>
+      <li><a href="/register">REGISTER</a></li>
     </ul>
     <button class="join-btn">JOIN</button>
   </nav>
