@@ -14,7 +14,7 @@
     <ul>
       <li><a href="/welcome_message">HOME</a></li>
       <li><a href="/about">ABOUT</a></li>
-      <li><a href="#">CONTACT US</a></li>
+      <li><a href="/contactus">CONTACT US</a></li>
       <li><a href="/membership">MEMBERSHIP</a></li>
       <li><a href="/login">LOGIN</a></li>
       <li><a href="/register">REGISTER</a></li>
