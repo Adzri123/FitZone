@@ -63,7 +63,6 @@
     form.addEventListener('submit', function (e) {
       let hasError = false;
 
-      const email = form.email.value.trim();
       const password = form.password.value;
       const password2 = form.password2.value;
 
