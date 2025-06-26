@@ -12,10 +12,10 @@
   <nav>
     <div class="logo">FITZONE</div>
     <ul>
-      <li><a href="#">HOME</a></li>
+      <li><a href="/welcome_message">HOME</a></li>
       <li><a href="/about">ABOUT</a></li>
       <li><a href="#">CONTACT US</a></li>
-      <li><a href="#">MEMBERSHIP</a></li>
+      <li><a href="/membership">MEMBERSHIP</a></li>
       <li><a href="/login">LOGIN</a></li>
       <li><a href="/register">REGISTER</a></li>
     </ul>
@@ -33,7 +33,7 @@
 
     <!-- Promo Box -->
     <div class="promo-container">
-      <div class="promo-banner">GET 25% OFF FOR MERCHANDISE</div>
+      <div class="promo-banner">GET 20% OFF FOR MERCHANDISE</div>
       <div class="merch-box">
         <img src="assets/images/merchhh.jpg" alt="Merchandise Promotion">
       </div>

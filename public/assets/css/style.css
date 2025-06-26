@@ -97,3 +97,9 @@ body.auth-body {
   color: #e50914;
   text-decoration: none;
 }
+
+.error-message {
+  color: red;
+  font-size: 0.85em;
+  margin-top: 4px;
+}

@@ -20,7 +20,8 @@ class registerController extends BaseController
             'password' => $this->request->getPost('password'),
             'phone'    => $this->request->getPost('phone'),
             'email'    => $this->request->getPost('email'),
-            'role'     => $this->request->getPost('role')
+            'role'     => $this->request->getPost('role'),
+            'membershipID' => $this->request->getPost('membershipID')
         ];
 
         $userModel->insert($data);
