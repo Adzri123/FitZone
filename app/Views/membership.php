@@ -25,19 +25,6 @@ S
   <h1 class="title">FITZONE MEMBERSHIP</h1>
   <p class="subtitle">14 days unlimited free trial. No contract or credit card required</p>
 
-  <div class="container">
-    <!-- Basic Plan -->
-    <div class="card basic">
-      <h2>Basic Membership</h2>
-      <ul class="features">
-        <li>One-time payment</li>
-        <li>No discount</li>
-        <li>No trainer/class</li>
-        <li>Can upgrade anytime</li>
-      </ul>
-      <p class="price">Free</p>
-      <a href="#" class="btn">Get Started</a>
-    </div>
 
     <!-- Silver Plan -->
     <div class="card silver">
