@@ -92,7 +92,7 @@
     </div>
 
     <!-- External JS -->
-    <script src="js/manage_admin.js"></script>
+    <script src="<?= base_url('assets/js/manage_admin.js') ?>"></script>
 </body>
 
 </html>
