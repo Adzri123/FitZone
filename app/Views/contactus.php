@@ -17,16 +17,16 @@
   <nav>
     <div class="logo">FITZONE</div>
     <ul>
-      <li><a href="public.php">HOME</a></li>
-      <li><a href="about.php">ABOUT</a></li>
-      <li><a href="contactus.php">CONTACT US</a></li>
-      <li><a href="membership.php">MEMBERSHIP</a></li>
-      <li><a href="login.php">LOGIN</a></li>
-      <li><a href="register.php">REGISTER</a></li>
+      <li><a href="/welcome_message">HOME</a></li>
+      <li><a href="/about">ABOUT</a></li>
+      <li><a href="/contactus">CONTACT US</a></li>
+      <li><a href="/membership">MEMBERSHIP</a></li>
+      <li><a href="/login">LOGIN</a></li>
+      <li><a href="/register">REGISTER</a></li>
     </ul>
     <button class="join-btn">JOIN</button>
   </nav>
-
+  
   <!-- Contact Content -->
   <div class="container">
     <div class="contact-box">
