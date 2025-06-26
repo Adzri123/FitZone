@@ -12,7 +12,7 @@
   <nav>
     <div class="logo">FITZONE</div>
     <ul>
-      <li><a href="/welcome_message">HOME</a></li>
+      <li><a href="/">HOME</a></li>
       <li><a href="/about">ABOUT</a></li>
       <li><a href="/contactus">CONTACT US</a></li>
       <li><a href="/membership">MEMBERSHIP</a></li>
