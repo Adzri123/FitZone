@@ -49,7 +49,7 @@
     </div>
 
     <!-- JS at bottom -->
-    <script src="js/dashboard.js"></script>
+    <script src="assets/js/dashboard.js"></script>
 </body>
 
 </html>
