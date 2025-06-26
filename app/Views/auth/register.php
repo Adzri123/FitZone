@@ -30,27 +30,24 @@
 
          <div class="input-icon">
           <i class="fas fa-lock"></i>
-          <input type="password" name="password1" placeholder="Password" required />
+          <input type="password" name="password" placeholder="Password" required />
         </div>
+        <div class="error-message" id="error-password"></div>
 
          <div class="input-icon">
           <i class="fas fa-lock"></i>
           <input type="password" name="password2" placeholder="Confirm Password" required />
         </div>
+        <div class="error-message" id="error-password2"></div>
 
         <div class="input-icon">
           <i class="fas fa-phone"></i>
           <input type="text" name="phone" placeholder="Phone No" required />
         </div>
 
-        <div class="input-icon">
-          <i class="fas fa-users"></i>
-          <select name="role" required>
-            <option value="">-- Select Role --</option>
-            <option value="member">Member</option>
-            <option value="admin">Admin</option>
-          </select>
-        </div>
+        <input type="hidden" name="role" value="member">
+        <input type="hidden" name="membershipID" value="1">
+
         <button class="login-btn" type="submit">REGISTER</button>
       </form>
       <div class="auth-footer">
@@ -58,5 +55,41 @@
       </div>
     </div>
   </div>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.querySelector('form');
+
+    form.addEventListener('submit', function (e) {
+      let hasError = false;
+
+      const password = form.password.value;
+      const password2 = form.password2.value;
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}$/;
+
+      // Clear all previous error messages
+      document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
+
+      if (!passwordRegex.test(password)) {
+        document.getElementById('error-password').textContent =
+          'Password must be at least 8 characters and include uppercase, lowercase, and a symbol.';
+        hasError = true;
+      }
+
+      if (password !== password2) {
+        document.getElementById('error-password2').textContent = 'Passwords do not match.';
+        hasError = true;
+      }
+
+      if (hasError) {
+        e.preventDefault(); // Stop form submission
+      }
+    });
+  });
+</script>
+
+
 </body>
 </html>
