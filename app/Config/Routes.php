@@ -8,6 +8,9 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/', 'Home::index');
 $routes->get('/about', 'Home::about');
 
+$routes->get('welcome_message', 'Home::index');
+
+
 $routes->get('membership', 'Home::membership');
 
 $routes->get('/login', 'AuthController::login');

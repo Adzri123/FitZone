@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Manage Admins - Fitzone</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body class="bg-gray-100 h-screen flex overflow-hidden">
 
     <!-- Sidebar -->
@@ -42,7 +44,7 @@
         <main class="p-6 flex-grow">
             <div class="flex justify-between items-center mb-4">
                 <h1 class="text-2xl font-bold">Admin Management</h1>
-                <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">+ Add Admin</a>
+                <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded"> Add Admin</a>
             </div>
 
             <div class="bg-white rounded shadow overflow-x-auto">
@@ -57,18 +59,33 @@
                         </tr>
                     </thead>
                     <tbody class="divide-y">
+                        <?php foreach ($admins as $admin): ?>
+                            <tr>
+                                <td class="px-6 py-4"><?= esc($admin['name']) ?></td>
+                                <td class="px-6 py-4"><?= esc($admin['email']) ?></td>
+                                <td class="px-6 py-4"><?= esc($admin['password']) ?></td> <!-- Show actual password -->
+                                <td class="px-6 py-4"><?= esc($admin['phone']) ?></td>
+                                <td class="px-6 py-4">
+                                    <a href="#" class="bg-yellow-600 hover:bg-yellow-700 text-white px-4 py-1 rounded"> Edit Admin</a>
+                                    <a href="#" class="bg-red-600 hover:bg-red-700 text-white px-4 py-1 rounded"> Delete Admin</a>
+                                    
+                                    
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+
                         <tr>
-                            <td class="px-6 py-4">John Doe</td>
-                            <td class="px-6 py-4">john@example.com</td>
-                            <td class="px-6 py-4">********</td>
-                            <td class="px-6 py-4">012-3456789</td>
-                            <td class="px-6 py-4">
-                                <button onclick="editAdmin()" class="text-blue-600 hover:underline mr-3">Edit</button>
-                                <button onclick="deleteAdmin()" class="text-red-600 hover:underline">Delete</button>
+                            <td colspan="5" class="px-6 py-4 text-center text-gray-500">
+                                <div class="flex justify-between items-center mb-4">
+
+                                    <span class="text-sm text-gray-600">Total Admins: <?= esc($adminCount) ?></span>
+
+                                </div>
                             </td>
                         </tr>
-                        <!-- Add more rows here later -->
+
                     </tbody>
+
                 </table>
             </div>
         </main>
@@ -77,4 +94,5 @@
     <!-- External JS -->
     <script src="js/manage_admin.js"></script>
 </body>
+
 </html>

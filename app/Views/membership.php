@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>FitZone membership plan</title>
+  <title>FitZone Membership Plan</title>
   <link rel="stylesheet" href="<?= base_url('assets/css/membership.css') ?>">
 </head>
 <body>
@@ -21,23 +21,11 @@
     </ul>
     <button class="join-btn">JOIN</button>
   </nav>
-S
+
   <h1 class="title">FITZONE MEMBERSHIP</h1>
-  <p class="subtitle">14 days unlimited free trial. No contract or credit card required</p>
+  <p class="subtitle">Pay Once. Access Forever. Upgrade Anytime.</p>
 
   <div class="container">
-    <!-- Basic Plan -->
-    <div class="card basic">
-      <h2>Basic Membership</h2>
-      <ul class="features">
-        <li>One-time payment</li>
-        <li>No discount</li>
-        <li>No trainer/class</li>
-        <li>Can upgrade anytime</li>
-      </ul>
-      <p class="price">Free</p>
-      <a href="#" class="btn">Get Started</a>
-    </div>
 
     <!-- Silver Plan -->
     <div class="card silver">
@@ -77,6 +65,7 @@ S
       <p class="price">RM349</p>
       <a href="#" class="btn">Join Platinum</a>
     </div>
+
   </div>
 
 </body>
