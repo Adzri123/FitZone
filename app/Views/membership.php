@@ -21,8 +21,8 @@
     </ul>
     <button class="join-btn">JOIN</button>
   </nav>
-
-  <h1 class="title">SPORT GYM MEMBERSHIP</h1>
+S
+  <h1 class="title">FITZONE MEMBERSHIP</h1>
   <p class="subtitle">14 days unlimited free trial. No contract or credit card required</p>
 
   <div class="container">
