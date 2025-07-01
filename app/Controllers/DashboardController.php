@@ -41,14 +41,14 @@ class DashboardController extends BaseController
         //return view('admin/manage_admin', $data);
 
         // Get only admins
-    $admins = $adminModel->where('role', 'admin')->findAll();
+        $admins = $adminModel->where('role', 'admin')->findAll();
     
 
-    // Count how many
-    $adminCount = count($admins);
+        // Count how many
+        $adminCount = count($admins);
 
-    // Pass both to the view
-    return view('admin/manage_admin', [
+        // Pass both to the view
+        return view('admin/manage_admin', [
         'admins' => $admins,
         'adminCount' => $adminCount
     ]);
