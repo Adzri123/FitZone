@@ -26,6 +26,6 @@ class registerController extends BaseController
 
         $userModel->insert($data);
 
-        return view('/login')->with('success', 'Registration successful!');
+        return redirect()->to('/login')->with('success', 'Registration successful!');
     }
 }

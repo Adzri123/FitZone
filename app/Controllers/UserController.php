@@ -43,6 +43,6 @@ class UserController extends BaseController
     public function logout()
     {
         session()->destroy();
-        return view('welcome_message');
+        return redirect()->to('/login');
     }
 }
