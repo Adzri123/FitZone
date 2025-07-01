@@ -26,12 +26,12 @@ $routes->get('/dashboard/admin', 'DashboardController::admin');
 $routes->get('/register', 'registerController::index');
 $routes->post('register/process', 'registerController::process');
 
-$routes->get('/admin/add', 'Admin::addAdminForm');       // Show form
-$routes->post('/admin/add', 'Admin::saveAdmin');         // Process form
-$routes->get('/admin/edit/(:num)', 'Admin::editAdminForm/$1'); // Edit form
-$routes->post('/admin/update/(:num)', 'Admin::updateAdmin/$1'); // Save changes
-$routes->get('/admin/delete/(:num)', 'Admin::deleteAdmin/$1'); // Delete admin
-$routes->get('/admin', 'Admin::dashboard');
+// $routes->get('/admin/add', 'Admin::addAdminForm');       // Show form
+// $routes->post('/admin/add', 'Admin::saveAdmin');         // Process form
+// $routes->get('/admin/edit/(:num)', 'Admin::editAdminForm/$1'); // Edit form
+// $routes->post('/admin/update/(:num)', 'Admin::updateAdmin/$1'); // Save changes
+// $routes->get('/admin/delete/(:num)', 'Admin::deleteAdmin/$1'); // Delete admin
+// $routes->get('/admin', 'Admin::dashboard');
 $routes->get('/admin/manage-admin', 'DashboardController::manageAdmin');
 
 
