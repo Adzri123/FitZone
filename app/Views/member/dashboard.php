@@ -77,13 +77,13 @@
     <div id="dashboardCarousel" class="carousel slide mb-4" data-bs-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="<?= base_url('assets/images/slider1.jpg') ?>" class="d-block w-100" alt="Slide 1">
+          <img src="<?= base_url('assets/images/fit.jpg') ?>" class="d-block w-100" alt="Slide 1">
         </div>
         <div class="carousel-item">
-          <img src="<?= base_url('assets/images/slider2.jpg') ?>" class="d-block w-100" alt="Slide 2">
+          <img src="<?= base_url('assets/images/lol.jpg') ?>" class="d-block w-100" alt="Slide 2">
         </div>
         <div class="carousel-item">
-          <img src="<?= base_url('assets/images/slider3.jpg') ?>" class="d-block w-100" alt="Slide 3">
+          <img src="<?= base_url('assets/images/merchh.jpg') ?>" class="d-block w-100" alt="Slide 3">
         </div>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#dashboardCarousel" data-bs-slide="prev">
