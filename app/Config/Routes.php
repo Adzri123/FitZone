@@ -14,11 +14,13 @@ $routes->get('membership', 'Home::membership');
 //login part
 $routes->get('/login', 'AuthController::login');
 $routes->post('/login', 'AuthController::loginSubmit');
-$routes->get('/logout', 'AuthController::logout');
 
 //register part
 $routes->get('/register', 'registerController::index');
 $routes->post('register/process', 'registerController::process');
+
+//logout part
+$routes->get('logout', 'AuthController::logout');
 
 //admin part
 $routes->get('/dashboard/admin', 'AdminController::admin');
