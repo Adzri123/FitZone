@@ -6,6 +6,8 @@
     <title>Fitzone Admin Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <!-- Chart.js CDN MUST come before your JS -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -42,6 +44,41 @@
 
         <!-- Dashboard Chart -->
         <main class="p-6 flex-grow">
+            <!-- Info Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+                <div class="bg-cyan-500 text-white p-6 rounded shadow flex items-center justify-between">
+                    <div>
+                        <h2 class="text-3xl font-bold">150</h2>
+                        <p class="text-sm">Total Admin</p>
+                    </div>
+                    <i class="fas fa-shopping-cart text-3xl"></i>
+                </div>
+
+                <div class="bg-green-500 text-white p-6 rounded shadow flex items-center justify-between">
+                    <div>
+                        <h2 class="text-3xl font-bold">53%</h2>
+                        <p class="text-sm">Total User</p>
+                    </div>
+                    <i class="fas fa-chart-bar text-3xl"></i>
+                </div>
+
+                <div class="bg-yellow-400 text-white p-6 rounded shadow flex items-center justify-between">
+                    <div>
+                        <h2 class="text-3xl font-bold">44</h2>
+                        <p class="text-sm">Membership Subscription</p>
+                    </div>
+                    <i class="fas fa-user-plus text-3xl"></i>
+                </div>
+
+                <div class="bg-red-500 text-white p-6 rounded shadow flex items-center justify-between">
+                    <div>
+                        <h2 class="text-3xl font-bold">65</h2>
+                        <p class="text-sm">Total Merchandise</p>
+                    </div>
+                    <i class="fas fa-chart-pie text-3xl"></i>
+                </div>
+            </div>
+
             <h1 class="text-2xl font-bold mb-4">Statistics Overview</h1>
             <div class="bg-white p-6 rounded shadow">
                 <canvas id="myChart" width="400" height="200"></canvas>
@@ -50,7 +87,7 @@
     </div>
 
     <!-- JS at bottom -->
-    <script src="<?= base_url('assets/js/dashboard.js') ?>"></script>
+    <script src="js/dashboard.js"></script>
 </body>
 
 </html>

@@ -21,7 +21,7 @@ $routes->get('/register', 'registerController::index');
 $routes->post('register/process', 'registerController::process');
 
 //admin part
-$routes->get('/dashboard/admin', 'DashboardController::admin');
+$routes->get('/dashboard/admin', 'AdminController::admin');
 
 //member part
 $routes->get('/dashboard/member', 'DashboardController::member');
@@ -32,7 +32,12 @@ $routes->get('/dashboard/member', 'DashboardController::member');
 // $routes->post('/admin/update/(:num)', 'Admin::updateAdmin/$1'); // Save changes
 // $routes->get('/admin/delete/(:num)', 'Admin::deleteAdmin/$1'); // Delete admin
 // $routes->get('/admin', 'Admin::dashboard');
-$routes->get('/admin/manage-admin', 'DashboardController::manageAdmin');
+
+//admin part
+$routes->get('/dashboard/admin', 'AdminController::admin');
+
+$routes->get('/admin/manage-admin', 'AdminController::manageAdmin');
+$routes->get('admin/dashboard', 'AdminController::dashboard');
 
 
 
