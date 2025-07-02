@@ -29,7 +29,8 @@ class AuthController extends BaseController
                 'isLoggedIn' => true
             ]);
 
-            return redirect()->to('/dashboard//'. $user['role']);
+            session()->set('admin_name', $user['name']);
+            return redirect()->to('/admin/dashboard');
         } else {
             $referer = $_SERVER['HTTP_REFERER'] ?? site_url('/login'); // fallback
             return redirect()->to($referer)->with('error', 'Invalid email or password');

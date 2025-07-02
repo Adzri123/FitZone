@@ -2,19 +2,32 @@ window.addEventListener("DOMContentLoaded", function () {
     // Chart setup (unchanged)
     const ctx = document.getElementById('myChart');
     if (ctx) {
-        new Chart(ctx, {
+        const { userCount, merchCount, stockCount } = window.dashboardData;
+        const myChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ['Jan', 'Feb', 'Mar', 'Apr'],
+                labels: ['Users', 'Merchandise', 'Stock'],
                 datasets: [{
-                    label: 'Total Members',
-                    data: [12, 19, 3, 5],
-                    backgroundColor: '#4f46e5'
+                    label: 'Statistics',
+                    data: [userCount, merchCount, stockCount],
+                    backgroundColor: [
+                        'rgba(59, 130, 246, 0.7)',
+                        'rgba(234, 179, 8, 0.7)',
+                        'rgba(34, 197, 94, 0.7)'
+                    ],
+                    borderColor: [
+                        'rgba(59, 130, 246, 1)',
+                        'rgba(234, 179, 8, 1)',
+                        'rgba(34, 197, 94, 1)'
+                    ],
+                    borderWidth: 1
                 }]
             },
             options: {
                 responsive: true,
-                maintainAspectRatio: false
+                scales: {
+                    y: { beginAtZero: true }
+                }
             }
         });
     }
