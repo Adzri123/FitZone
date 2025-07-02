@@ -42,6 +42,7 @@
     <a class="navbar-brand" href="#">🏋️ Fitness Dashboard</a>
     <div class="d-flex">
       <span class="text-white me-3">Welcome, <?= session('email') ?></span>
+      <span class="text-info me-3">Balance: <?= session('balancePoint') ?? 0 ?> pts</span>
       <a class="btn btn-outline-light btn-sm" href="<?= site_url('/logout') ?>">Logout</a>
     </div>
   </div>
