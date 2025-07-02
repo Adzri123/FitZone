@@ -23,20 +23,32 @@ class AdminController extends BaseController
     
     public function dashboard()
     {
-        // Fetch admin name from session
-        $adminName = session()->get('admin_name');
+        // Check if admin is logged in
+        if (!session()->get('adminName')) {
+            return redirect()->to('/login'); // or your login route
+        }
 
-        // Fetch statistics (replace with your actual models/tables)
-        $userCount = (new UserModel())->countAll();
-        //$merchCount = (new MerchandiseModel())->countAll();
-       // $stockCount = (new StockModel())->countAll();
-
+        $adminName = session()->get('adminName');
+        // Pass any other data as needed
         return view('admin/dashboard', [
-            'adminName' => $adminName,
-            'userCount' => $userCount,
-           // 'merchCount' => $merchCount,
-           // 'stockCount' => $stockCount,
+            'adminName' => $adminName
         ]);
+    }
+
+    public function login()
+    {
+        $email = $this->request->getPost('email');
+        $password = $this->request->getPost('password');
+        $userModel = new \App\Models\UserModel();
+        $user = $userModel->where('email', $email)->first();
+
+        if ($user && password_verify($password, $user['password'])) {
+            session()->set('adminName', $user['name']);
+            session()->set('role', 'admin');
+            return redirect()->to('/admin/dashboard');
+        } else {
+            return redirect()->back()->with('error', 'Invalid credentials');
+        }
     }
 }
 ?>
