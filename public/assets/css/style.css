@@ -1,3 +1,24 @@
+
+.back-icon {
+  position: absolute;
+  top: 20px;
+  right: 30px; /* Moved to right side */
+  font-size: 20px;
+  color: white;
+  background-color: #751111;
+  padding: 10px 12px;
+  border-radius: 50%;
+  text-decoration: none;
+  z-index: 999;
+  transition: background-color 0.3s ease;
+}
+
+.back-icon:hover {
+  background-color: #a52a2a;
+  color: #fff;
+}
+
+
 body.auth-body {
   margin: 0;
   font-family: 'Arial', sans-serif;

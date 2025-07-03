@@ -9,6 +9,12 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body class="auth-body">
+  
+  <!-- Back to Home Icon Button -->
+<a href="<?= base_url('welcome_message') ?>" class="back-icon" title="Back to Home">
+  <i class="fas fa-home"></i>
+</a>
+
   <div class="auth-container">
     <div class="auth-image-section">
       <img src="assets/images/lol2.jpg" alt="Fitness" />
