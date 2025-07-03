@@ -11,6 +11,8 @@ $routes->get('/about', 'Home::about');
 $routes->get('contactus', 'Home::contactus');
 $routes->get('membership', 'Home::membership');
 
+$routes->get('/merchandise', 'Home::merchandise');
+
 $routes->get('/trainers', 'Home::trainers');
 
 

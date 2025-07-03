@@ -1,0 +1,104 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #000;
+  color: white;
+  text-align: center;
+}
+
+nav {
+  background-color: #751111;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+}
+
+nav .logo {
+  font-weight: bold;
+  font-size: 24px;
+  color: rgb(253, 245, 245);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+nav ul li {
+  display: inline;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav .join-btn {
+  background-color: #f00;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.title {
+  margin-top: 40px;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.subtitle {
+  color: #ccc;
+  margin-bottom: 30px;
+}
+
+.merch-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 30px;
+}
+
+.merch-card {
+  background-color: #222;
+  width: 280px;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+.merch-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.buy-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: 10px;
+  background-color: #f00;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+}
+
+.buy-btn:hover {
+  background-color: #c00;
+}
+
+.box-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}

@@ -46,22 +46,29 @@
   </div>
 
   <!-- Service Section -->
-  <div class="class-section">
-    <div class="class-box">
+<div class="class-section">
+  
+  <div class="class-box">
+    <a href="<?= base_url('/merchandise') ?>" style="text-decoration: none; color: inherit;">
       <img src="assets/images/fit.jpg" alt="store">
       <h3>Train in Style</h3>
-    </div>
-    <div class="class-box">
-      <img src="assets/images/rewardd.png" alt="reward">
-      <h3>Earn & Redeem</h3>
-    </div>
-    <div class="class-box">
-  <a href="<?= base_url('trainers') ?>" style="text-decoration: none; color: inherit;">
-    <img src="assets/images/trainee.jpg" alt="trainers">
-    <h3>Meet Our Trainers</h3>
-  </a>
+    </a>
+  </div>
+
+  <div class="class-box">
+    <img src="assets/images/rewardd.png" alt="reward">
+    <h3>Earn & Redeem</h3>
+  </div>
+
+  <div class="class-box">
+    <a href="<?= base_url('/trainers') ?>" style="text-decoration: none; color: inherit;">
+      <img src="assets/images/trainee.jpg" alt="trainers">
+      <h3>Meet Our Trainers</h3>
+    </a>
+  </div>
+
 </div>
-    </div>
+
   </div>
 
 </body>

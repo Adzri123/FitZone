@@ -25,9 +25,17 @@ class Home extends BaseController
         return view('membership'); // Membership page view
     }
 
+    public function merchandise()
+{
+    return view('merchandise');
+}
+
+
     public function trainers()
 {
     return view('trainers');
 }
+
+
 
 }
