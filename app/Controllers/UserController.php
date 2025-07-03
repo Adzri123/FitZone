@@ -27,7 +27,6 @@ class UserController extends BaseController
                 'userID' => $user['userID'],
                 'email' => $user['email'],
                 'role' => $user['role'],
-                'balancePoint' => $user['balancePoint'],
                 'isLoggedIn' => true,
             ]);
 
