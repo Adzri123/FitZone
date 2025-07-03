@@ -11,6 +11,9 @@ $routes->get('/about', 'Home::about');
 $routes->get('contactus', 'Home::contactus');
 $routes->get('membership', 'Home::membership');
 
+$routes->get('/trainers', 'Home::trainers');
+
+
 //login part
 $routes->get('/login', 'AuthController::login');
 $routes->post('/login', 'AuthController::loginSubmit');

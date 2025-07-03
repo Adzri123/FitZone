@@ -28,7 +28,7 @@
     <div class="hero-content">
       <h1>YOUR FITNESS JOURNEY STARTS HERE</h1>
       <p>Don't wait any longer; seize this opportunity to become the best version of yourself. Join our gym class today and take the special offer for Body Pump Class!</p>
-      <button class="detail-btn">DETAIL</button>
+      <a href="<?= base_url('membership') ?>" class="detail-btn">DETAIL</a>
     </div>
 
     <!-- Promo Box -->
@@ -56,8 +56,11 @@
       <h3>Earn & Redeem</h3>
     </div>
     <div class="class-box">
-      <img src="assets/images/trainee.jpg" alt="trainers">
-      <h3>Meet Our Trainers</h3>
+  <a href="<?= base_url('trainers') ?>" style="text-decoration: none; color: inherit;">
+    <img src="assets/images/trainee.jpg" alt="trainers">
+    <h3>Meet Our Trainers</h3>
+  </a>
+</div>
     </div>
   </div>
 
