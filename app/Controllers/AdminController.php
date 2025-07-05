@@ -8,28 +8,14 @@ use App\Models\StockModel;
 
 class AdminController extends BaseController
 {
-
-    public function admin()
+    public function dashboard()
     {
-        // Check if logged in and is user
+        // Check if admin is logged in and has the correct role
         if (!session()->get('isLoggedIn') || session()->get('role') !== 'admin') {
             return redirect()->to('/login');
         }
 
-        return view('admin/dashboard');
-
-        
-    }
-    
-    public function dashboard()
-    {
-        // Check if admin is logged in
-        if (!session()->get('adminName')) {
-            return redirect()->to('/login'); // or your login route
-        }
-
         $adminName = session()->get('adminName');
-        // Pass any other data as needed
         return view('admin/dashboard', [
             'adminName' => $adminName
         ]);
@@ -43,6 +29,7 @@ class AdminController extends BaseController
         $user = $userModel->where('email', $email)->first();
 
         if ($user && password_verify($password, $user['password'])) {
+            session()->set('isLoggedIn', true);
             session()->set('adminName', $user['name']);
             session()->set('role', 'admin');
             return redirect()->to('/admin/dashboard');

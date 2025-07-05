@@ -5,8 +5,9 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
+$routes->get('/', 'Home::index');
 //public part
- $routes->get('/welcome_message', 'Home::index');
+$routes->get('/welcome_message', 'Home::index');
 $routes->get('/about', 'Home::about');
 $routes->get('contactus', 'Home::contactus');
 $routes->get('membership', 'Home::membership');
@@ -14,7 +15,6 @@ $routes->get('membership', 'Home::membership');
 $routes->get('/merchandise', 'Home::merchandise');
 
 $routes->get('/trainers', 'Home::trainers');
-
 
 //login part
 $routes->get('/login', 'AuthController::login');
@@ -28,7 +28,10 @@ $routes->post('register/process', 'registerController::process');
 $routes->get('logout', 'AuthController::logout');
 
 //admin part
-$routes->get('/dashboard/admin', 'AdminController::admin');
+$routes->get('admin/dashboard', 'AdminController::dashboard');
+$routes->get('dashboard/admin', 'AdminController::dashboard');
+
+$routes->get('/admin/manage-admin', 'AdminController::manageAdmin');
 
 //member part
 $routes->get('/dashboard/member', 'DashboardController::member');
@@ -39,12 +42,6 @@ $routes->get('/dashboard/member', 'DashboardController::member');
 // $routes->post('/admin/update/(:num)', 'Admin::updateAdmin/$1'); // Save changes
 // $routes->get('/admin/delete/(:num)', 'Admin::deleteAdmin/$1'); // Delete admin
 // $routes->get('/admin', 'Admin::dashboard');
-
-//admin part
-$routes->get('/dashboard/admin', 'AdminController::admin');
-
-$routes->get('/admin/manage-admin', 'AdminController::manageAdmin');
-$routes->get('admin/dashboard', 'AdminController::dashboard');
 
 
 
