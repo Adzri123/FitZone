@@ -78,9 +78,9 @@
     <div class="section">
       <h2>Our Trainers</h2>
       <ul>
-        <li><strong>Coach Aiman</strong> – Strength & Conditioning Specialist</li>
-        <li><strong>Coach Farah</strong> – Certified Zumba & Yoga Instructor</li>
-        <li><strong>Coach Ray</strong> – Personal Transformation Coach</li>
+        <li><strong>Coach Max</strong> – Strength & Conditioning Specialist</li>
+        <li><strong>Coach Nia</strong> – Certified Zumba & Yoga Instructor</li>
+        <li><strong>Coach Blake</strong> – Personal Transformation Coach</li>
       </ul>
     </div>
 
