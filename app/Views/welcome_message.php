@@ -19,7 +19,7 @@
     <!-- Removed LOGIN and REGISTER links -->
   </ul>
   <!-- Updated JOIN button to go to login page -->
-  <a href="<?= base_url('/login') ?>" class="join-btn">JOIN</a>
+  <a href="<?= base_url('/register') ?>" class="join-btn">JOIN</a>
 </nav>
 
 
@@ -43,18 +43,36 @@
 
 <div class="promo-container">
   <div class="promo-banner">GET 20% OFF FOR MERCHANDISE</div>
-  <div class="merch-box">
-    <a href="<?= base_url('merchandise') ?>">
-      <video autoplay loop muted playsinline>
-        <source src="assets/images/slideshow.mp4" type="video/mp4"> 
-      </video>
-    </a>
+
+  <div class="slideshow-wrapper">
+    <!-- Left Arrow -->
+    <span class="arrow left" onclick="prevSlide()">&#10094;</span>
+
+    <div class="slideshow-container">
+      <img class="slide-img active" src="assets/images/hoodie.jpg" alt="Product 1">
+      <img class="slide-img" src="assets/images/yogamat.jpg" alt="Product 2">
+      <img class="slide-img" src="assets/images/cap.jpg" alt="Product 3">
+      <img class="slide-img" src="assets/images/bottle.jpg" alt="Product 4">
+      <img class="slide-img" src="assets/images/protein.jpg" alt="Product 5">
+      <img class="slide-img" src="assets/images/tshirt.jpg" alt="Product 6">
+      <img class="slide-img" src="assets/images/bag.jpg" alt="Product 7">
+    </div>
+
+    <!-- Right Arrow -->
+    <span class="arrow right" onclick="nextSlide()">&#10095;</span>
+
+    <!-- Pagination Dots -->
+    <div class="dots-container">
+      <span class="dot active" onclick="showSlide(0)"></span>
+      <span class="dot" onclick="showSlide(1)"></span>
+      <span class="dot" onclick="showSlide(2)"></span>
+      <span class="dot" onclick="showSlide(3)"></span>
+      <span class="dot" onclick="showSlide(4)"></span>
+      <span class="dot" onclick="showSlide(5)"></span>
+      <span class="dot" onclick="showSlide(6)"></span>
+    </div>
   </div>
 </div>
-
-
-
-
 </div>
 
   <!-- Section Divider -->
@@ -91,6 +109,33 @@
 </div>
 
   </div>
+  
+<script>
+  let slideIndex = 0;
+  let slides = document.querySelectorAll('.slide-img');
+  let dots = document.querySelectorAll('.dot');
+
+  function showSlide(n) {
+    slides.forEach((slide, i) => {
+      slide.classList.remove('active');
+      dots[i].classList.remove('active');
+    });
+    slides[n].classList.add('active');
+    dots[n].classList.add('active');
+    slideIndex = n;
+  }
+
+  function nextSlide() {
+    slideIndex = (slideIndex + 1) % slides.length;
+    showSlide(slideIndex);
+  }
+
+  setInterval(nextSlide, 3000); // Auto-play every 3 seconds
+
+  // Initialize
+  showSlide(slideIndex);
+</script>
+
 
 </body>
 </html>
