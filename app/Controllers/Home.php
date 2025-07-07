@@ -30,6 +30,11 @@ class Home extends BaseController
     return view('merchandise');
 }
 
+public function earnRedeem()
+{
+    return view('earn_redeem');
+}
+
 
     public function trainers()
 {

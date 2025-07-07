@@ -55,10 +55,14 @@
     </a>
   </div>
 
-  <div class="class-box">
+  <!-- Earn & Redeem Box -->
+<div class="class-box">
+  <a href="<?= base_url('/earn_redeem') ?>" style="text-decoration: none; color: inherit;">
     <img src="assets/images/rewardd.png" alt="reward">
     <h3>Earn & Redeem</h3>
-  </div>
+  </a>
+</div>
+
 
   <div class="class-box">
     <a href="<?= base_url('/trainers') ?>" style="text-decoration: none; color: inherit;">

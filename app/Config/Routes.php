@@ -14,6 +14,9 @@ $routes->get('membership', 'Home::membership');
 
 $routes->get('/merchandise', 'Home::merchandise');
 
+$routes->get('/earn_redeem', 'Home::earnRedeem');
+
+
 $routes->get('/trainers', 'Home::trainers');
 
 //login part
