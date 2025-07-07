@@ -47,6 +47,19 @@ nav ul li a {
   text-decoration: none; /* make link text look like button */
 }
 
+.detail-btn {
+  background-color: #f00;
+  padding: 12px 25px;
+  color: white;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  text-decoration: none; /* ← This removes the underline */
+  display: inline-block;  /* ← Makes it behave like a button */
+}
+
+
 .hero {
   position: relative;
   height: 90vh;
