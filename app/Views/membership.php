@@ -10,17 +10,17 @@
 
   <!-- Navigation -->
   <nav>
-    <div class="logo">FITZONE</div>
-    <ul>
-      <li><a href="<?= base_url('welcome_message') ?>">HOME</a></li>
-      <li><a href="<?= base_url('about') ?>">ABOUT</a></li>
-      <li><a href="<?= base_url('contactus') ?>">CONTACT US</a></li>
-      <li><a href="<?= base_url('membership') ?>">MEMBERSHIP</a></li>
-      <li><a href="<?= base_url('login') ?>">LOGIN</a></li>
-      <li><a href="<?= base_url('register') ?>">REGISTER</a></li>
-    </ul>
-    <button class="join-btn">JOIN</button>
-  </nav>
+  <div class="logo">FITZONE</div>
+  <ul>
+    <li><a href="<?= base_url('/welcome_message') ?>">HOME</a></li>
+    <li><a href="<?= base_url('/about') ?>">ABOUT</a></li>
+    <li><a href="<?= base_url('/contactus') ?>">CONTACT US</a></li>
+    <li><a href="<?= base_url('/membership') ?>">MEMBERSHIP</a></li>
+    <!-- Removed LOGIN and REGISTER links -->
+  </ul>
+  <!-- Updated JOIN button to go to login page -->
+  <a href="<?= base_url('/login') ?>" class="join-btn">JOIN</a>
+</nav>
 
   <h1 class="title">FITZONE MEMBERSHIP</h1>
   <p class="subtitle">Pay Once. Access Forever. Upgrade Anytime.</p>
@@ -37,7 +37,6 @@
         <li>Choose trainer</li>
       </ul>
       <p class="price">RM149</p>
-      <a href="#" class="btn">Join Silver</a>
     </div>
 
     <!-- Gold Plan -->
@@ -50,7 +49,6 @@
         <li>Choose trainer</li>
       </ul>
       <p class="price">RM249</p>
-      <a href="#" class="btn">Join Gold</a>
     </div>
 
     <!-- Platinum Plan -->
@@ -63,7 +61,6 @@
         <li>Choose trainer</li>
       </ul>
       <p class="price">RM349</p>
-      <a href="#" class="btn">Join Platinum</a>
     </div>
 
   </div>

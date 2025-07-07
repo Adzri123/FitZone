@@ -9,36 +9,53 @@
 <body>
 
   <!-- Navigation -->
-  <nav>
-    <div class="logo">FITZONE</div>
-    <ul>
-      <li><a href="/">HOME</a></li>
-      <li><a href="/about">ABOUT</a></li>
-      <li><a href="/contactus">CONTACT US</a></li>
-      <li><a href="/membership">MEMBERSHIP</a></li>
-      <li><a href="/login">LOGIN</a></li>
-      <li><a href="/register">REGISTER</a></li>
-    </ul>
-    <button class="join-btn">JOIN</button>
-  </nav>
+ <nav>
+  <div class="logo">FITZONE</div>
+  <ul>
+    <li><a href="<?= base_url('/welcome_message') ?>">HOME</a></li>
+    <li><a href="<?= base_url('/about') ?>">ABOUT</a></li>
+    <li><a href="<?= base_url('/contactus') ?>">CONTACT US</a></li>
+    <li><a href="<?= base_url('/membership') ?>">MEMBERSHIP</a></li>
+    <!-- Removed LOGIN and REGISTER links -->
+  </ul>
+  <!-- Updated JOIN button to go to login page -->
+  <a href="<?= base_url('/login') ?>" class="join-btn">JOIN</a>
+</nav>
+
 
   <!-- Hero Section -->
-  <div class="hero">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <h1>YOUR FITNESS JOURNEY STARTS HERE</h1>
-      <p>Don't wait any longer; seize this opportunity to become the best version of yourself. Join our gym class today and take the special offer for Body Pump Class!</p>
-      <a href="<?= base_url('membership') ?>" class="detail-btn">DETAIL</a>
-    </div>
+ <!-- Hero Section -->
+<div class="hero">
 
-    <!-- Promo Box -->
-    <div class="promo-container">
-      <div class="promo-banner">GET 20% OFF FOR MERCHANDISE</div>
-      <div class="merch-box">
-        <img src="assets/images/merchhh.jpg" alt="Merchandise Promotion">
-      </div>
-    </div>
+  <!-- Background Video -->
+  <video autoplay muted loop playsinline class="hero-video">
+    <source src="assets/images/preview.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <h1>YOUR FITNESS JOURNEY STARTS HERE</h1>
+    <p>Don't wait any longer; seize this opportunity to become the best version of yourself. Join our gym class today and take the special offer for Body Pump Class!</p>
+    <a href="<?= base_url('membership') ?>" class="detail-btn">DETAIL</a>
   </div>
+
+<div class="promo-container">
+  <div class="promo-banner">GET 20% OFF FOR MERCHANDISE</div>
+  <div class="merch-box">
+    <a href="<?= base_url('merchandise') ?>">
+      <video autoplay loop muted playsinline>
+        <source src="assets/images/slideshow.mp4" type="video/mp4"> 
+      </video>
+    </a>
+  </div>
+</div>
+
+
+
+
+</div>
 
   <!-- Section Divider -->
   <div class="section-divider">

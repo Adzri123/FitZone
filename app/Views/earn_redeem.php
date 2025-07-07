@@ -15,11 +15,12 @@
     <li><a href="<?= base_url('/about') ?>">ABOUT</a></li>
     <li><a href="<?= base_url('/contactus') ?>">CONTACT US</a></li>
     <li><a href="<?= base_url('/membership') ?>">MEMBERSHIP</a></li>
-    <li><a href="<?= base_url('/login') ?>">LOGIN</a></li>
-    <li><a href="<?= base_url('/register') ?>">REGISTER</a></li>
+    <!-- Removed LOGIN and REGISTER links -->
   </ul>
-  <button class="join-btn">JOIN</button>
+  <!-- Updated JOIN button to go to login page -->
+  <a href="<?= base_url('/login') ?>" class="join-btn">JOIN</a>
 </nav>
+
 
 <h1 class="title">EARN & REDEEM</h1>
 <p class="subtitle">Collect points as you shop and redeem exciting rewards!</p>
@@ -37,29 +38,25 @@
   <h2>Redeem Your Rewards</h2>
   <table>
     <thead>
-      <tr>
-        <th>Reward</th>
-        <th>Points Required</th>
-        <th>Status</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>FitZone Water Bottle</td>
-        <td>29</td>
-        <td><button class="redeem-btn">Redeem</button></td>
-      </tr>
-      <tr>
-        <td>Training T-Shirt</td>
-        <td>69</td>
-        <td><button class="redeem-btn">Redeem</button></td>
-      </tr>
-      <tr>
-        <td>Gym Membership Extension (1 week)</td>
-        <td>120</td>
-        <td><button class="redeem-btn">Redeem</button></td>
-      </tr>
-    </tbody>
+  <tr>
+    <th>Reward</th>
+    <th>Points Required</th>
+  </tr>
+</thead>
+
+    <tr>
+  <td>FitZone Water Bottle</td>
+  <td>29</td>
+</tr>
+<tr>
+  <td>Training T-Shirt</td>
+  <td>69</td>
+</tr>
+<tr>
+  <td>Gym Membership Extension (1 week)</td>
+  <td>120</td>
+</tr>
+
   </table>
 </div>
 

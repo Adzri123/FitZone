@@ -36,15 +36,17 @@
     font-weight: bold;
     }
 
-    nav .join-btn {
-    background-color: #f00;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    font-weight: bold;
-    border-radius: 5px;
-    cursor: pointer;
-    }
+    .join-btn {
+  background-color: #f00;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none; /* make link text look like button */
+}
+
 
     .hero {
      background: url('assets/images/about.png') no-repeat center;

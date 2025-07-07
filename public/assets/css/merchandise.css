@@ -32,7 +32,7 @@ nav ul li a {
   font-weight: bold;
 }
 
-nav .join-btn {
+.join-btn {
   background-color: #f00;
   color: white;
   padding: 10px 20px;
@@ -40,7 +40,9 @@ nav .join-btn {
   font-weight: bold;
   border-radius: 5px;
   cursor: pointer;
+  text-decoration: none; /* make link text look like button */
 }
+
 
 .title {
   margin-top: 40px;
@@ -108,51 +110,6 @@ nav .join-btn {
   border-radius: 8px;
   margin-bottom: 10px;
 }
-
-.cart-action {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-.qty-input {
-  width: 50px;
-  padding: 6px;
-  border: 2px solid #751111;
-  border-radius: 6px;
-  text-align: center;
-  font-weight: bold;
-  background-color: #fff;
-  color: #000;
-  outline: none;
-  transition: border-color 0.3s;
-}
-
-.qty-input:focus {
-  border-color: #f00;
-}
-
-.buy-btn {
-  background-color: #f00;
-  color: white;
-  padding: 10px 14px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.buy-btn i {
-  font-size: 18px;
-}
-
-
-.buy-btn:hover {
-  background-color: #c00;
-}
-
 .hidden {
   display: none;
 }
