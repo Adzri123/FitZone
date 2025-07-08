@@ -43,13 +43,6 @@ $routes->post('/admin/create-admin', 'AdminController::createAdmin');
 $routes->post('/admin/update-admin', 'AdminController::updateAdmin');
 $routes->post('/admin/delete-admin', 'AdminController::deleteAdmin');
 
-//member part
-$routes->get('/dashboard/member', 'DashboardController::member');
-
-// //member part
-// $routes->get('/dashboard/member', 'DashboardController::member');
-
-
 // $routes->get('/admin/add', 'Admin::addAdminForm');       // Show form
 // $routes->post('/admin/add', 'Admin::saveAdmin');         // Process form
 // $routes->get('/admin/edit/(:num)', 'Admin::editAdminForm/$1'); // Edit form
