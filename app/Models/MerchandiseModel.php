@@ -8,10 +8,10 @@ class MerchandiseModel extends Model
 {
     protected $table = 'merchandise';
     protected $primaryKey = 'merchandiseID';
-<<<<<<< HEAD
-    protected $allowedFields = ['name', 'price', 'stock_quantity', 'category', 'point_cost', 'is_redeemable'];
-    protected $useTimestamps = false;
-=======
+
+    
+    
+
     
     protected $allowedFields = [
         'name', 
@@ -28,5 +28,5 @@ class MerchandiseModel extends Model
     protected $useTimestamps = false;
     protected $dateFormat = 'datetime';
 
->>>>>>> 2b26fe64fb9ddb39feaec73708a5d1f5fc002560
+
 } 
