@@ -273,7 +273,6 @@ class MemberController extends BaseController
         $membershipModel = new MembershipModel();
         $userMembershipModel = new UserMembershipModel();
         $userModel = new UserModel();
-        $orderModel = new OrderModel();
 
         $membershipID = $this->request->getPost('membershipID');
         $userID = session()->get('userID');
@@ -309,19 +308,6 @@ class MemberController extends BaseController
                 }
             }
         }
-
-        // Create order for membership purchase (no points earned)
-        $orderID = $orderModel->insert([
-            'userID' => $userID,
-            'order_type' => 'membership',
-            'total_amount' => $membership['price'],
-            'discount_amount' => 0,
-            'final_amount' => $membership['price'],
-            'points_earned' => 0,
-            'points_used' => 0,
-            'status' => 'paid',
-            'order_date' => date('Y-m-d H:i:s')
-        ]);
 
         // Update or create user membership
         if ($existingUserMembership) {
