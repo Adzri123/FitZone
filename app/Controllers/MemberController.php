@@ -18,6 +18,9 @@ class MemberController extends BaseController
 {
     public function memberDashboard()
     {
+        if (!session()->get('isLoggedIn') || session()->get('role') !== 'member') {
+            return redirect()->to('/login');
+        }
         $userID = session()->get('userID');
 
         $userMembershipModel = new UserMembershipModel();
