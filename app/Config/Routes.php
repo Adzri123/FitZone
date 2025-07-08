@@ -36,7 +36,7 @@ $routes->get('dashboard/admin', 'AdminController::dashboard');
 
 $routes->get('/admin/manage-admin', 'AdminController::manageAdmin');
 
-<<<<<<< HEAD
+
 // Admin CRUD routes
 $routes->get('/admin/get-admins', 'AdminController::getAdmins');
 $routes->post('/admin/create-admin', 'AdminController::createAdmin');
@@ -45,10 +45,10 @@ $routes->post('/admin/delete-admin', 'AdminController::deleteAdmin');
 
 //member part
 $routes->get('/dashboard/member', 'DashboardController::member');
-=======
+
 // //member part
 // $routes->get('/dashboard/member', 'DashboardController::member');
->>>>>>> 2b26fe64fb9ddb39feaec73708a5d1f5fc002560
+
 
 // $routes->get('/admin/add', 'Admin::addAdminForm');       // Show form
 // $routes->post('/admin/add', 'Admin::saveAdmin');         // Process form
