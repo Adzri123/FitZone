@@ -14,20 +14,18 @@ nav {
   padding: 20px 50px;
 }
 
-nav .logo {
+.logo {
   font-weight: bold;
   font-size: 24px;
-  color: rgb(253, 245, 245);
+  color: white;
+  text-decoration: none; /* Remove underline */
 }
+
 
 nav ul {
   list-style: none;
   display: flex;
   gap: 30px;
-}
-
-nav ul li {
-  display: inline;
 }
 
 nav ul li a {
@@ -36,7 +34,7 @@ nav ul li a {
   font-weight: bold;
 }
 
-nav .join-btn {
+.join-btn {
   background-color: #f00;
   color: white;
   padding: 10px 20px;
@@ -44,7 +42,9 @@ nav .join-btn {
   font-weight: bold;
   border-radius: 5px;
   cursor: pointer;
+  text-decoration: none; /* make link text look like button */
 }
+
 
 .title {
   margin-top: 40px;
@@ -57,21 +57,52 @@ nav .join-btn {
   margin-bottom: 30px;
 }
 
+.category-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.category-buttons button {
+  padding: 12px 28px;
+  font-size: 16px;
+  background-color: #f00;
+  color: white;
+  border: none;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  min-width: 140px;
+  text-align: center;
+}
+
+.category-buttons button:hover {
+  background-color: #c00;
+}
+
+
 .merch-container {
   display: flex;
-  justify-content: center;
-  gap: 20px;
   flex-wrap: wrap;
-  padding: 30px;
+  justify-content: center;
+  gap: 30px;
+  padding: 20px;
+  min-height: 400px;
 }
 
 .merch-card {
-  background-color: #222;
-  width: 280px;
-  border-radius: 12px;
-  padding: 20px;
+  width: 250px;
+  border-radius: 10px;
+  background-color: #fff;
+  color: #000;
+  padding: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
   text-align: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease;
 }
 
 .merch-card img {
@@ -81,24 +112,6 @@ nav .join-btn {
   border-radius: 8px;
   margin-bottom: 10px;
 }
-
-.buy-btn {
-  display: inline-block;
-  padding: 10px 20px;
-  margin-top: 10px;
-  background-color: #f00;
-  color: white;
-  font-weight: bold;
-  text-decoration: none;
-  border-radius: 8px;
-}
-
-.buy-btn:hover {
-  background-color: #c00;
-}
-
-.box-link {
-  text-decoration: none;
-  color: inherit;
-  display: block;
+.hidden {
+  display: none;
 }

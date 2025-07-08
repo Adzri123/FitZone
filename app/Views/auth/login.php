@@ -37,7 +37,7 @@
         <button class="login-btn" type="submit">LOGIN</button>
       </form>
       <div class="auth-footer">
-        <a href="register.html">Create Account</a>
+        <a href="<?= base_url('register') ?>">Create Account</a>
         <a href="#">Need Help?</a>
       </div>
     </div>

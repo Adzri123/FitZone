@@ -13,11 +13,13 @@ nav {
   padding: 40px 70px;
 }
 
-nav .logo {
+.logo {
   font-weight: bold;
   font-size: 24px;
-  color: rgb(253, 245, 245);
+  color: white;
+  text-decoration: none; /* Remove underline */
 }
+
 
 nav ul {
   list-style: none;
@@ -35,7 +37,7 @@ nav ul li a {
   font-weight: bold;
 }
 
-nav .join-btn {
+.join-btn {
   background-color: #f00;
   color: white;
   padding: 10px 20px;
@@ -43,7 +45,9 @@ nav .join-btn {
   font-weight: bold;
   border-radius: 5px;
   cursor: pointer;
+  text-decoration: none; /* make link text look like button */
 }
+
 
 
 body {

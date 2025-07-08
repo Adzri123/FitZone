@@ -9,18 +9,20 @@
 <body>
 
   <!-- Navigation -->
-  <nav>
-    <div class="logo">FITZONE</div>
-    <ul>
-      <li><a href="/welcome_message">HOME</a></li>
-      <li><a href="/about">ABOUT</a></li>
-      <li><a href="/contactus">CONTACT US</a></li>
-      <li><a href="/membership">MEMBERSHIP</a></li>
-      <li><a href="/login">LOGIN</a></li>
-      <li><a href="/register">REGISTER</a></li>
-    </ul>
-    <button class="join-btn">JOIN</button>
-  </nav>
+ <nav>
+  <a href="<?= base_url('/welcome_message') ?>" class="logo">FITZONE</a>
+
+  <ul>
+    <li><a href="<?= base_url('/welcome_message') ?>">HOME</a></li>
+    <li><a href="<?= base_url('/about') ?>">ABOUT</a></li>
+    <li><a href="<?= base_url('/contactus') ?>">CONTACT US</a></li>
+    <li><a href="<?= base_url('/membership') ?>">MEMBERSHIP</a></li>
+    <!-- Removed LOGIN and REGISTER links -->
+  </ul>
+  <!-- Updated JOIN button to go to login page -->
+  <a href="<?= base_url('/register') ?>" class="join-btn">JOIN</a>
+</nav>
+
 
   <!-- About Page Content -->
   <div class="container">
@@ -76,9 +78,9 @@
     <div class="section">
       <h2>Our Trainers</h2>
       <ul>
-        <li><strong>Coach Aiman</strong> – Strength & Conditioning Specialist</li>
-        <li><strong>Coach Farah</strong> – Certified Zumba & Yoga Instructor</li>
-        <li><strong>Coach Ray</strong> – Personal Transformation Coach</li>
+        <li><strong>Coach Max</strong> – Strength & Conditioning Specialist</li>
+        <li><strong>Coach Nia</strong> – Certified Zumba & Yoga Instructor</li>
+        <li><strong>Coach Blake</strong> – Personal Transformation Coach</li>
       </ul>
     </div>
 

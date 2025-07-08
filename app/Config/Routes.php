@@ -14,6 +14,9 @@ $routes->get('membership', 'Home::membership');
 
 $routes->get('/merchandise', 'Home::merchandise');
 
+$routes->get('/earn_redeem', 'Home::earnRedeem');
+
+
 $routes->get('/trainers', 'Home::trainers');
 
 //login part
@@ -33,6 +36,7 @@ $routes->get('dashboard/admin', 'AdminController::dashboard');
 
 $routes->get('/admin/manage-admin', 'AdminController::manageAdmin');
 
+<<<<<<< HEAD
 // Admin CRUD routes
 $routes->get('/admin/get-admins', 'AdminController::getAdmins');
 $routes->post('/admin/create-admin', 'AdminController::createAdmin');
@@ -41,6 +45,10 @@ $routes->post('/admin/delete-admin', 'AdminController::deleteAdmin');
 
 //member part
 $routes->get('/dashboard/member', 'DashboardController::member');
+=======
+// //member part
+// $routes->get('/dashboard/member', 'DashboardController::member');
+>>>>>>> 2b26fe64fb9ddb39feaec73708a5d1f5fc002560
 
 // $routes->get('/admin/add', 'Admin::addAdminForm');       // Show form
 // $routes->post('/admin/add', 'Admin::saveAdmin');         // Process form
@@ -49,6 +57,33 @@ $routes->get('/dashboard/member', 'DashboardController::member');
 // $routes->get('/admin/delete/(:num)', 'Admin::deleteAdmin/$1'); // Delete admin
 // $routes->get('/admin', 'Admin::dashboard');
 
+//member part
+$routes->get('/dashboard/member', 'MemberController::memberDashboard');
+$routes->get('/shop', 'MemberController::shop');
+$routes->get('/membership', 'MemberController::membership');
+$routes->get('/buy-membership', 'MemberController::buyMembership');
+$routes->get('/classes', 'MemberController::classes');
+$routes->post('/book-class', 'MemberController::bookClass');
+$routes->post('/purchase-membership', 'MemberController::purchaseMembership');
+$routes->post('/purchase-merchandise', 'MemberController::purchaseMerchandise');
+
+// Cart routes
+$routes->post('/add-to-cart', 'MemberController::addToCart');
+$routes->get('/cart', 'MemberController::viewCart');
+$routes->post('/update-cart', 'MemberController::updateCart');
+$routes->post('/remove-from-cart', 'MemberController::removeFromCart');
+$routes->post('/checkout', 'MemberController::checkout');
+$routes->post('/place-order', 'MemberController::placeOrder');
+
+// Redeem routes
+$routes->post('/redeem-merchandise', 'MemberController::redeemMerchandise');
+
+// Order history route
+$routes->get('/order-history', 'MemberController::orderHistory');
+
+// Point routes
+$routes->post('member/pointCheckout', 'MemberController::pointCheckout');
+$routes->post('member/confirmPointRedemption', 'MemberController::confirmPointRedemption');
 
 $routes->get('/admin/manage-membership', 'AdminController::manageMembership');
 $routes->post('/admin/create-membership', 'AdminController::createMembership');
