@@ -8,5 +8,6 @@ class MembershipModel extends Model
 {
     protected $table = 'membership';
     protected $primaryKey = 'membershipID';
-    protected $allowedFields = ['planName', 'discountRate', 'trainerLimit', 'membershipStatus', 'redeemStatus'];
+    protected $allowedFields = ['planName', 'tier', 'discountRate', 'classLimit', 'redeemStatus' ,'price'];
+    protected $useTimestamps = false;
 }

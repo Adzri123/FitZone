@@ -33,6 +33,12 @@ $routes->get('dashboard/admin', 'AdminController::dashboard');
 
 $routes->get('/admin/manage-admin', 'AdminController::manageAdmin');
 
+// Admin CRUD routes
+$routes->get('/admin/get-admins', 'AdminController::getAdmins');
+$routes->post('/admin/create-admin', 'AdminController::createAdmin');
+$routes->post('/admin/update-admin', 'AdminController::updateAdmin');
+$routes->post('/admin/delete-admin', 'AdminController::deleteAdmin');
+
 //member part
 $routes->get('/dashboard/member', 'DashboardController::member');
 
@@ -42,6 +48,34 @@ $routes->get('/dashboard/member', 'DashboardController::member');
 // $routes->post('/admin/update/(:num)', 'Admin::updateAdmin/$1'); // Save changes
 // $routes->get('/admin/delete/(:num)', 'Admin::deleteAdmin/$1'); // Delete admin
 // $routes->get('/admin', 'Admin::dashboard');
+
+
+$routes->get('/admin/manage-membership', 'AdminController::manageMembership');
+$routes->post('/admin/create-membership', 'AdminController::createMembership');
+$routes->post('/admin/update-membership', 'AdminController::updateMembership');
+$routes->post('/admin/delete-membership', 'AdminController::deleteMembership');
+
+$routes->get('/admin/manage-trainer', 'AdminController::manageTrainer');
+$routes->post('/admin/create-trainer', 'AdminController::createTrainer');
+$routes->post('/admin/update-trainer', 'AdminController::updateTrainer');
+$routes->post('/admin/delete-trainer', 'AdminController::deleteTrainer');
+
+$routes->get('/admin/manage-class', 'AdminController::manageClass');
+$routes->get('/admin/get-class', 'AdminController::getClass');
+$routes->post('/admin/create-class', 'AdminController::createClass');
+$routes->post('/admin/update-class', 'AdminController::updateClass');
+$routes->post('/admin/delete-class', 'AdminController::deleteClass');
+
+$routes->get('/admin/manage-schedule', 'AdminController::manageSchedule');
+$routes->post('/admin/create-schedule', 'AdminController::createSchedule');
+$routes->post('/admin/update-schedule', 'AdminController::updateSchedule');
+$routes->post('/admin/delete-schedule', 'AdminController::deleteSchedule');
+$routes->get('/admin/get-schedule', 'AdminController::getSchedule');
+
+$routes->get('/admin/manage-merchandise', 'AdminController::manageMerchandise');
+$routes->post('/admin/create-merchandise', 'AdminController::createMerchandise');
+$routes->post('/admin/update-merchandise', 'AdminController::updateMerchandise');
+$routes->post('/admin/delete-merchandise', 'AdminController::deleteMerchandise');
 
 
 

@@ -21,7 +21,10 @@
                 <a href="/admin/dashboard" class="active"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
                 <a href="/admin/manage-admin"><i class="fas fa-user-cog"></i> Manage Admin</a>
                 <a href="/admin/manage-merchandise"><i class="fas fa-box-open"></i> Manage Merchandise</a>
-                <a href="/admin/manage-stock"><i class="fas fa-warehouse"></i> Manage Stock</a>
+                <a href="/admin/manage-membership"><i class="fas fa-id-card"></i> Manage Membership</a>
+                <a href="/admin/manage-trainer"><i class="fas fa-user-tie"></i> Manage Trainer</a>
+                <a href="/admin/manage-class"><i class="fas fa-chalkboard-teacher"></i> Manage Class</a>
+                <a href="/admin/manage-schedule"><i class="fas fa-calendar-alt"></i> Manage Schedule</a>
             </nav>
         </div>
         <div class="mb-6 px-6">
@@ -51,47 +54,48 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
                 <div class="card-gym rounded-xl shadow flex items-center justify-between p-6">
                     <div>
-                        <div class="value text-4xl font-extrabold">150</div>
+                        <div class="value text-4xl font-extrabold"><?= esc($adminCount) ?></div>
                         <div class="label text-base mt-1">Total Admin</div>
                     </div>
                     <i class="fas fa-user-shield icon text-4xl"></i>
                 </div>
                 <div class="card-gym rounded-xl shadow flex items-center justify-between p-6">
                     <div>
-                        <div class="value text-4xl font-extrabold">53%</div>
-                        <div class="label text-base mt-1">Total User</div>
+                        <div class="value text-4xl font-extrabold"><?= esc($classCount) ?></div>
+                        <div class="label text-base mt-1">Total Class</div>
                     </div>
                     <i class="fas fa-users icon text-4xl"></i>
                 </div>
                 <div class="card-gym rounded-xl shadow flex items-center justify-between p-6">
                     <div>
-                        <div class="value text-4xl font-extrabold">44</div>
+                        <div class="value text-4xl font-extrabold"><?= esc($membershipCount) ?></div>
                         <div class="label text-base mt-1">Membership Subscription</div>
                     </div>
                     <i class="fas fa-id-card-alt icon text-4xl"></i>
                 </div>
                 <div class="card-gym rounded-xl shadow flex items-center justify-between p-6">
                     <div>
-                        <div class="value text-4xl font-extrabold">65</div>
+                        <div class="value text-4xl font-extrabold"><?= esc($merchandiseCount) ?></div>
                         <div class="label text-base mt-1">Total Merchandise</div>
                     </div>
                     <i class="fas fa-dumbbell icon text-4xl"></i>
                 </div>
             </div>
-            <div class="chart-container-gym p-8 rounded-xl shadow">
-                <canvas id="myChart" width="400" height="200"></canvas>
+            <div class="flex flex-col md:flex-row justify-center gap-8">
+                <div class="chart-container-gym p-8 rounded-xl shadow" style="max-width:500px; width:100%;">
+                    <canvas id="planNameBarChart" width="500" height="400"></canvas>
+                </div>
+                <div class="chart-container-gym p-8 rounded-xl shadow" style="max-width:400px; width:100%;">
+                    <canvas id="merchandisePieChart" width="400" height="400"></canvas>
+                </div>
             </div>
         </main>
     </div>
 
     <!-- Pass PHP data to JS (example, replace with real data as needed) -->
     <script>
-        window.dashboardData = {
-            totalAdmin: 150,
-            totalUser: 53,
-            membership: 44,
-            merchandise: 65
-        };
+        window.planNameClassLimit = <?= json_encode($planNameClassLimit) ?>;
+        window.merchandiseStockPie = <?= json_encode($merchandiseStockPie) ?>;
     </script>
     <script src="<?= base_url('assets/js/dashboard.js') ?>"></script>
     
