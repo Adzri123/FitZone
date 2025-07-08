@@ -523,7 +523,7 @@
                 <?php endif; ?>
                 <div class="plan-header">
                   <div class="plan-name"><?= esc($membership['planName']) ?></div>
-                  <div class="plan-price">$<?= number_format($membership['price'], 2) ?></div>
+                  <div class="plan-price">RM<?= number_format($membership['price'], 2) ?></div>
                   <div class="plan-duration">per month</div>
                 </div>
                 <ul class="plan-features">
@@ -630,7 +630,7 @@
           </div>
           <div class="summary-row">
             <span>Plan Price:</span>
-            <span id="summary-price">$0.00</span>
+            <span id="summary-price">RM0.00</span>
           </div>
           <div class="summary-row">
             <span>Payment Method:</span>
@@ -638,7 +638,7 @@
           </div>
           <div class="summary-row summary-total">
             <span>Total Amount:</span>
-            <span id="summary-total">$0.00</span>
+            <span id="summary-total">RM0.00</span>
           </div>
         </div>
         <!-- Purchase Button -->
@@ -646,7 +646,7 @@
           <input type="hidden" name="membershipID" id="selected-membership-id">
           <input type="hidden" name="payment_method" id="selected-payment-method" value="card">
           <button type="submit" class="btn-purchase" id="purchase-btn" disabled>
-            <i class="fas fa-lock"></i> Secure Purchase - $0.00
+            <i class="fas fa-lock"></i> Secure Purchase - RM0.00
           </button>
         </form>
       </div>
@@ -681,7 +681,7 @@
               <tr>
                 <td><i class="fas fa-dollar-sign"></i> Monthly Price</td>
                 <?php foreach ($planOrder as $plan): ?>
-                  <td class="price-cell"><?= isset($plans[$plan]) ? '$' . number_format($plans[$plan]['price'], 2) : '-' ?></td>
+                  <td class="price-cell"><?= isset($plans[$plan]) ? 'RM' . number_format($plans[$plan]['price'], 2) : '-' ?></td>
                 <?php endforeach; ?>
               </tr>
               <tr>
@@ -776,11 +776,11 @@ document.addEventListener('DOMContentLoaded', function() {
   function updateSummary() {
     if (selectedPlan) {
       document.getElementById('summary-plan').textContent = selectedPlan.name;
-      document.getElementById('summary-price').textContent = `$${selectedPlan.price.toFixed(2)}`;
-      document.getElementById('summary-total').textContent = `$${selectedPlan.price.toFixed(2)}`;
+      document.getElementById('summary-price').textContent = `RM${selectedPlan.price.toFixed(2)}`;
+      document.getElementById('summary-total').textContent = `RM${selectedPlan.price.toFixed(2)}`;
       document.getElementById('selected-membership-id').value = selectedPlan.id;
       const purchaseBtn = document.getElementById('purchase-btn');
-      purchaseBtn.textContent = `Secure Purchase - $${selectedPlan.price.toFixed(2)}`;
+      purchaseBtn.textContent = `Secure Purchase - RM${selectedPlan.price.toFixed(2)}`;
       purchaseBtn.disabled = false;
     }
   }

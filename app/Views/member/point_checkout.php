@@ -32,7 +32,7 @@
                             </div>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="shipping_option" id="delivery" value="delivery" onchange="toggleAddressFields()" <?= (isset($shippingOption) && $shippingOption === 'delivery') ? 'checked' : '' ?>>
-                                <label class="form-check-label" for="delivery">Delivery ($5)</label>
+                                <label class="form-check-label" for="delivery">Delivery (RM5)</label>
                             </div>
                         </div>
                         <div id="pickupInfo" class="mb-3" style="display: <?= (empty($shippingOption) || $shippingOption === 'pickup') ? 'block' : 'none' ?>;">

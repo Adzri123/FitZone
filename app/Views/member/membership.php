@@ -173,7 +173,7 @@
               <p><strong>Purchase Date:</strong> <?= date('d M Y', strtotime($currentMembership['purchase_date'])) ?></p>
             </div>
             <div class="col-md-6">
-              <p><strong>Payment Amount:</strong> $<?= number_format($currentMembership['payment_amount'], 2) ?></p>
+              <p><strong>Payment Amount:</strong> RM<?= number_format($currentMembership['payment_amount'], 2) ?></p>
               <p><strong>Payment Status:</strong> <span class="badge bg-success">Paid</span></p>
             </div>
           </div>
@@ -200,7 +200,7 @@
               
               <div class="card-body text-center">
                 <h4 class="card-title"><?= esc($membership['planName']) ?></h4>
-                <p class="price-tag">$<?= number_format($membership['price'], 2) ?></p>
+                <p class="price-tag">RM<?= number_format($membership['price'], 2) ?></p>
                 <p class="text-muted">per month</p>
                 
                 <ul class="feature-list text-start">

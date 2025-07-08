@@ -318,7 +318,7 @@
                       <?php endif; ?>
                     </div>
                     <div class="col-md-2">
-                      <span class="price-badge">$<?= number_format($item['price'], 2) ?></span>
+                      <span class="price-badge">RM<?= number_format($item['price'], 2) ?></span>
                     </div>
                     <div class="col-md-2">
                       <form action="<?= site_url('/update-cart') ?>" method="post" class="d-flex align-items-center">
@@ -331,7 +331,7 @@
                       </form>
                     </div>
                     <div class="col-md-1">
-                      <span class="fw-bold">$<?= number_format($itemTotal, 2) ?></span>
+                      <span class="fw-bold">RM <?= number_format($itemTotal, 2) ?></span>
                     </div>
                     <div class="col-md-1">
                       <form action="<?= site_url('/remove-from-cart') ?>" method="post" class="d-inline">
@@ -358,7 +358,7 @@
             <div class="card-body">
               <div class="d-flex justify-content-between mb-2">
                 <span>Subtotal:</span>
-                <span>$<?= number_format($subtotal, 2) ?></span>
+                <span>RM<?= number_format($subtotal, 2) ?></span>
               </div>
               
               <?php if ($discountRate > 0 && $membership): ?>
@@ -372,7 +372,7 @@
                       <small class="text-muted"><?= $discountRate ?>% off all purchases</small>
                     </div>
                     <div class="text-end">
-                      <span class="discount-badge">-$<?= number_format($discountAmount, 2) ?></span>
+                      <span class="discount-badge">-RM<?= number_format($discountAmount, 2) ?></span>
                     </div>
                   </div>
                 </div>
@@ -398,7 +398,7 @@
                 <div class="form-check">
                   <input class="form-check-input" type="radio" name="shipping_option" id="delivery" value="delivery">
                   <label class="form-check-label" for="delivery">
-                    <i class="fas fa-truck text-primary"></i> Delivery ($5.00)
+                    <i class="fas fa-truck text-primary"></i> Delivery (RM5.00)
                   </label>
                 </div>
               </div>
@@ -410,7 +410,7 @@
               <hr>
               <div class="d-flex justify-content-between mb-3">
                 <strong>Total:</strong>
-                <strong class="text-primary" id="total-amount">$<?= number_format($totalAmount, 2) ?></strong>
+                <strong class="text-primary" id="total-amount">RM<?= number_format($totalAmount, 2) ?></strong>
               </div>
               <?php if ($totalPoints > 0): ?>
               <div class="d-flex justify-content-between mb-3">
@@ -423,7 +423,7 @@
                 <div class="alert alert-info mb-3 membership-benefit">
                   <small>
                     <i class="fas fa-star"></i>
-                    <strong>Membership Benefit:</strong> You saved $<?= number_format($discountAmount, 2) ?> with your <?= $membership['planName'] ?> membership!
+                    <strong>Membership Benefit:</strong> You saved RM<?= number_format($discountAmount, 2) ?> with your <?= $membership['planName'] ?> membership!
                   </small>
                 </div>
               <?php endif; ?>
@@ -465,12 +465,12 @@ document.addEventListener('DOMContentLoaded', function() {
         if (pickupRadio.checked) {
             shippingCostSpan.textContent = 'Free';
             shippingOptionInput.value = 'pickup';
-            totalSpan.textContent = '$' + baseTotal.toFixed(2);
+            totalSpan.textContent = 'RM' + baseTotal.toFixed(2);
         } else if (deliveryRadio.checked) {
-            shippingCostSpan.textContent = '$5.00';
+            shippingCostSpan.textContent = 'RM5.00';
             shippingOptionInput.value = 'delivery';
             const newTotal = baseTotal + 5.00;
-            totalSpan.textContent = '$' + newTotal.toFixed(2);
+            totalSpan.textContent = 'RM' + newTotal.toFixed(2);
         }
     }
     

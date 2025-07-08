@@ -373,7 +373,7 @@
                 <h6 class="card-title"><?= esc($item['name']) ?></h6>
                 <p class="card-text text-muted small"><?= esc($item['category']) ?></p>
                 <div class="d-flex justify-content-between align-items-center mb-2">
-                  <span class="price-badge">$<?= number_format($item['price'], 2) ?></span>
+                  <span class="price-badge">RM<?= number_format($item['price'], 2) ?></span>
                   <?php if ($item['point_cost'] > 0): ?>
                     <span class="points-badge"><?= $item['point_cost'] ?> pts</span>
                   <?php endif; ?>
@@ -442,7 +442,7 @@
                 <h6><i class="fas fa-shipping-fast text-primary"></i> Delivery Options</h6>
                 <ul class="list-unstyled">
                   <li><i class="fas fa-check text-success"></i> Free pickup at gym</li>
-                  <li><i class="fas fa-check text-success"></i> Home delivery ($5.00)</li>
+                  <li><i class="fas fa-check text-success"></i> Home delivery (RM5.00)</li>
                   <li><i class="fas fa-check text-success"></i> Same day processing</li>
                   <li><i class="fas fa-check text-success"></i> Secure payment</li>
                 </ul>
@@ -491,10 +491,10 @@
               <i class="fas fa-box"></i> Available stock: <span id="modalStockQuantity">0</span>
             </p>
             <p class="text-muted small">
-              <i class="fas fa-dollar-sign"></i> Price per item: $<span id="modalPrice">0.00</span>
+              <i class="fas fa-dollar-sign"></i> Price per item: RM<span id="modalPrice">0.00</span>
             </p>
             <p class="text-primary fw-bold">
-              <i class="fas fa-calculator"></i> Total: $<span id="modalTotal">0.00</span>
+              <i class="fas fa-calculator"></i> Total: RM<span id="modalTotal">0.00</span>
             </p>
           </div>
         </form>

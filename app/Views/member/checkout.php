@@ -480,7 +480,7 @@
                       <?php endif; ?>
                     </div>
                     <div class="col-3 text-end">
-                      <span class="fw-bold">$<?= number_format($itemTotal, 2) ?></span>
+                      <span class="fw-bold">RM<?= number_format($itemTotal, 2) ?></span>
                     </div>
                   </div>
                 </div>
@@ -491,7 +491,7 @@
               <!-- Order Totals -->
               <div class="d-flex justify-content-between mb-2">
                 <span>Subtotal:</span>
-                <span>$<?= number_format($subtotal, 2) ?></span>
+                <span>RM<?= number_format($subtotal, 2) ?></span>
               </div>
               
               <?php if ($discountRate > 0 && $membership): ?>
@@ -505,7 +505,7 @@
                       <small class="text-muted"><?= $discountRate ?>% off all purchases</small>
                     </div>
                     <div class="text-end">
-                      <span class="discount-badge">-$<?= number_format($discountAmount, 2) ?></span>
+                      <span class="discount-badge">-RM<?= number_format($discountAmount, 2) ?></span>
                     </div>
                   </div>
                 </div>
@@ -520,12 +520,12 @@
               
               <div class="d-flex justify-content-between mb-2">
                 <span>Shipping:</span>
-                <span><?= $shippingOption === 'delivery' ? '$5.00' : 'Free' ?></span>
+                <span><?= $shippingOption === 'delivery' ? 'RM5.00' : 'Free' ?></span>
               </div>
               <hr>
               <div class="d-flex justify-content-between mb-3">
                 <strong>Total:</strong>
-                <strong class="text-primary">$<?= number_format($totalAmount, 2) ?></strong>
+                <strong class="text-primary">RM<?= number_format($totalAmount, 2) ?></strong>
               </div>
               <?php if ($totalPoints > 0): ?>
               <div class="d-flex justify-content-between mb-3">
@@ -538,7 +538,7 @@
                 <div class="alert alert-info mb-3 membership-benefit">
                   <small>
                     <i class="fas fa-star"></i>
-                    <strong>Membership Benefit:</strong> You saved $<?= number_format($discountAmount, 2) ?> with your <?= $membership['planName'] ?> membership!
+                    <strong>Membership Benefit:</strong> You saved RM<?= number_format($discountAmount, 2) ?> with your <?= $membership['planName'] ?> membership!
                   </small>
                 </div>
               <?php endif; ?>
