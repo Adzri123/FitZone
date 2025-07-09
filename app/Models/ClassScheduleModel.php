@@ -19,7 +19,6 @@ class ClassScheduleModel extends Model
         'start_time', 
         'end_time', 
         'status', 
-        'capacity',
         'created_date'
     ];
 
