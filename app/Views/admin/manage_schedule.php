@@ -54,6 +54,39 @@
             <div class="card-gym rounded-xl shadow-lg border-l-8 border-red-500 overflow-hidden">
                 <div class="p-6 border-b border-gray-700">
                     <h2 class="text-xl font-bold text-white">Schedule List</h2>
+                    <!-- Filter Form -->
+                    <form method="get" class="flex flex-wrap gap-4 mt-4 items-end">
+                        <div>
+                            <label for="trainerID" class="block text-sm font-medium text-gray-300 mb-1">Trainer</label>
+                            <select name="trainerID" id="trainerID" class="w-48 px-3 py-2 bg-gray-800 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-red-500">
+                                <option value="">All Trainers</option>
+                                <?php if (!empty($trainers)): ?>
+                                    <?php foreach ($trainers as $trainer): ?>
+                                        <option value="<?= esc($trainer['trainerID']) ?>" <?= isset($filterTrainerID) && $filterTrainerID == $trainer['trainerID'] ? 'selected' : '' ?>><?= esc($trainer['name']) ?></option>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="classID" class="block text-sm font-medium text-gray-300 mb-1">Class</label>
+                            <select name="classID" id="classID" class="w-48 px-3 py-2 bg-gray-800 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-red-500">
+                                <option value="">All Classes</option>
+                                <?php if (!empty($classes)): ?>
+                                    <?php foreach ($classes as $class): ?>
+                                        <option value="<?= esc($class['classID']) ?>" <?= isset($filterClassID) && $filterClassID == $class['classID'] ? 'selected' : '' ?>><?= esc($class['class_name']) ?> (<?= esc($class['trainer_name']) ?>)</option>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                            </select>
+                        </div>
+                        <div>
+                            <button type="submit" class="btn-gym bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition-all duration-300 flex items-center gap-2">
+                                <i class="fas fa-filter"></i> Filter
+                            </button>
+                            <?php if (!empty($filterTrainerID) || !empty($filterClassID)): ?>
+                                <a href="<?= current_url() ?>" class="ml-2 text-sm text-gray-300 underline">Reset</a>
+                            <?php endif; ?>
+                        </div>
+                    </form>
                 </div>
                 <div class="overflow-x-auto">
                     <table class="w-full">
@@ -101,33 +134,38 @@
                     </table>
                 </div>
                 <!-- Pagination -->
-                <?php if (isset($pager) && $pager->getPageCount() > 1): ?>
-                    <div class="flex items-center justify-between px-6 py-4 border-t border-gray-700 bg-gray-900">
-                        <div class="text-sm text-gray-400">
-                            Showing <?= $pager->getFirstPage() ?> to <?= $pager->getLastPage() ?> of <?= $pager->getTotal() ?> schedules
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <?php if ($pager->getCurrentPage() > 1): ?>
-                                <a href="<?= current_url() ?>?page=<?= $pager->getCurrentPage() - 1 ?>" class="bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-lg text-sm font-medium flex items-center">
-                                    <i class="fas fa-chevron-left mr-1"></i>
-                                </a>
-                            <?php endif; ?>
-                            <?php for ($i = 1; $i <= $pager->getPageCount(); $i++): ?>
-                                <?php if ($i == $pager->getCurrentPage()): ?>
-                                    <span class="bg-red-500 text-white px-4 py-2 rounded-lg text-sm font-medium">
-                                        <?= $i ?>
-                                    </span>
-                                <?php else: ?>
-                                    <a href="<?= current_url() ?>?page=<?= $i ?>" class="bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-lg text-sm font-medium">
-                                        <?= $i ?>
+                <?php if (isset(
+                    $pager) && $pager->getPageCount() > 1): ?>
+                    <div class="p-6 border-t border-gray-700">
+                        <div class="flex items-center justify-between">
+                            <div class="text-sm text-gray-400">
+                                Showing <?= $pager->getFirstPage() ?> to <?= $pager->getLastPage() ?> of <?= $pager->getTotal() ?> schedules
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <?php if ($pager->getCurrentPage() > 1): ?>
+                                    <a href="<?= current_url() ?>?page=<?= $pager->getCurrentPage() - 1 ?>" class="btn-gym bg-gray-600 hover:bg-gray-700 text-white px-3 py-2 rounded-lg text-sm transition-all duration-300">
+                                        <i class="fas fa-chevron-left mr-1"></i> Previous
                                     </a>
                                 <?php endif; ?>
-                            <?php endfor; ?>
-                            <?php if ($pager->getCurrentPage() < $pager->getPageCount()): ?>
-                                <a href="<?= current_url() ?>?page=<?= $pager->getCurrentPage() + 1 ?>" class="bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-lg text-sm font-medium flex items-center">
-                                    Next <i class="fas fa-chevron-right ml-1"></i>
-                                </a>
-                            <?php endif; ?>
+                                <div class="flex items-center gap-1">
+                                    <?php for ($i = 1; $i <= $pager->getPageCount(); $i++): ?>
+                                        <?php if ($i == $pager->getCurrentPage()): ?>
+                                            <span class="bg-red-500 text-white px-3 py-2 rounded-lg text-sm font-medium">
+                                                <?= $i ?>
+                                            </span>
+                                        <?php else: ?>
+                                            <a href="<?= current_url() ?>?page=<?= $i ?>" class="bg-gray-600 hover:bg-gray-700 text-white px-3 py-2 rounded-lg text-sm transition-all duration-300">
+                                                <?= $i ?>
+                                            </a>
+                                        <?php endif; ?>
+                                    <?php endfor; ?>
+                                </div>
+                                <?php if ($pager->getCurrentPage() < $pager->getPageCount()): ?>
+                                    <a href="<?= current_url() ?>?page=<?= $pager->getCurrentPage() + 1 ?>" class="btn-gym bg-gray-600 hover:bg-gray-700 text-white px-3 py-2 rounded-lg text-sm transition-all duration-300">
+                                        Next <i class="fas fa-chevron-right ml-1"></i>
+                                    </a>
+                                <?php endif; ?>
+                            </div>
                         </div>
                     </div>
                 <?php endif; ?>
