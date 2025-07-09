@@ -19,7 +19,7 @@
     <!-- Removed LOGIN and REGISTER links -->
   </ul>
   <!-- Updated JOIN button to go to login page -->
-  <a href="<?= base_url('/register') ?>" class="join-btn">JOIN</a>
+  <a href="<?= base_url('/login') ?>" class="join-btn">JOIN</a>
 </nav>
 
 
