@@ -696,27 +696,60 @@ class AdminController extends BaseController
         if (!session()->get('isLoggedIn') || session()->get('role') !== 'admin') {
             return redirect()->to('/login');
         }
+
         $scheduleModel = new \App\Models\ClassScheduleModel();
         $classModel = new \App\Models\ClassModel();
+        $trainerModel = new \App\Models\TrainerModel();
+        $perPage = 5;
 
-        $schedules = $scheduleModel
-            ->select('class_schedule.*, class.class_name, trainer.name as trainer_name')
-            ->join('class', 'class.classID = class_schedule.classID', 'left')
-            ->join('trainer', 'trainer.trainerID = class.trainerID', 'left')
-            ->paginate(10);
-        $pager = $scheduleModel->pager;
+        // Get filter values from GET
+        $filterTrainerID = $this->request->getGet('trainerID');
+        $filterClassID = $this->request->getGet('classID');
 
-        $classes = $classModel
-            ->select('class.classID, class.class_name, trainer.name as trainer_name')
-            ->join('trainer', 'trainer.trainerID = class.trainerID', 'left')
-            ->findAll(); // Use findAll, not paginate
+        try {
+            $builder = $scheduleModel
+                ->select('class_schedule.*, class.class_name, trainer.name as trainer_name')
+                ->join('class', 'class.classID = class_schedule.classID', 'left')
+                ->join('trainer', 'trainer.trainerID = class.trainerID', 'left');
 
-        return view('admin/manage_schedule', [
-            'adminName' => session()->get('adminName'),
-            'schedules' => $schedules,
-            'classes' => $classes,
-            'pager' => $pager,
-        ]);
+            if ($filterTrainerID) {
+                $builder = $builder->where('trainer.trainerID', $filterTrainerID);
+            }
+            if ($filterClassID) {
+                $builder = $builder->where('class.classID', $filterClassID);
+            }
+
+            $schedules = $builder->paginate($perPage);
+            $pager = $scheduleModel->pager;
+
+            $classes = $classModel
+                ->select('class.classID, class.class_name, trainer.name as trainer_name')
+                ->join('trainer', 'trainer.trainerID = class.trainerID', 'left')
+                ->findAll();
+
+            $trainers = $trainerModel->findAll();
+
+            $adminName = session()->get('adminName');
+            return view('admin/manage_schedule', [
+                'adminName' => $adminName,
+                'schedules' => $schedules,
+                'classes' => $classes,
+                'trainers' => $trainers,
+                'pager' => $pager,
+                'filterTrainerID' => $filterTrainerID,
+                'filterClassID' => $filterClassID
+            ]);
+        } catch (\Exception $e) {
+            return view('admin/manage_schedule', [
+                'adminName' => session()->get('adminName'),
+                'schedules' => [],
+                'classes' => [],
+                'trainers' => [],
+                'pager' => null,
+                'filterTrainerID' => $filterTrainerID,
+                'filterClassID' => $filterClassID
+            ]);
+        }
     }
     public function createSchedule()
     {
