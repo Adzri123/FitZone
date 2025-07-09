@@ -350,6 +350,35 @@
         padding: 10px;
       }
     }
+    .schedule-slot.available {
+      background: #22c55e !important;
+      color: #fff !important;
+      border-left: 4px solid #16a34a !important;
+    }
+    .schedule-slot.booked {
+      background: #dc3545 !important;
+      color: #fff !important;
+      border-left: 4px solid #b91c1c !important;
+    }
+    /* Modal overlay for schedule details */
+    .schedule-details-popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.5);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .schedule-details-popup .card {
+      min-width: 350px;
+      max-width: 95vw;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+      border-radius: 16px;
+    }
   </style>
 </head>
 <body>
@@ -395,7 +424,7 @@
     <h2 class="mb-4"><i class="fas fa-calendar-alt"></i> Fitness Classes</h2>
 
     <!-- Capacity Information -->
-    <div class="capacity-info">
+    <!-- <div class="capacity-info">
       <h6><i class="fas fa-info-circle"></i> Class Capacity Information</h6>
       <div class="row">
         <div class="col-md-3">
@@ -411,10 +440,10 @@
           <span class="badge bg-secondary"><i class="fas fa-users"></i></span> Shows Available/Total Spots
         </div>
       </div>
-    </div>
+    </div> -->
 
     <!-- Class Type Filters -->
-    <div class="filter-buttons">
+    <!-- <div class="filter-buttons">
       <button class="btn btn-outline-primary active" data-filter="all">All Classes</button>
       <button class="btn btn-outline-success" data-filter="yoga">Yoga</button>
       <button class="btn btn-outline-danger" data-filter="cardio">Cardio</button>
@@ -423,7 +452,7 @@
       <button class="btn btn-outline-secondary" data-filter="spinning">Spinning</button>
       <button class="btn btn-outline-dark" data-filter="zumba">Zumba</button>
       <button class="btn btn-outline-danger" data-filter="boxing">Boxing</button>
-    </div>
+    </div> -->
 
     <!-- Classes Grid -->
     <div class="row g-4">
@@ -467,9 +496,27 @@
         <div class="card">
           <div class="card-body">
             <h5 class="card-title"><i class="fas fa-calendar-check"></i> Your Booked Classes</h5>
-            <?php if (isset($userBookings) && count($userBookings) > 0): ?>
+            <?php 
+              $upcomingBookings = [];
+              if (isset($userBookings) && count($userBookings) > 0) {
+                $today = date('Y-m-d');
+                foreach ($userBookings as $booking) {
+                  if ($booking['schedule_date'] >= $today) {
+                    $upcomingBookings[] = $booking;
+                  }
+                }
+                // Sort by date and time
+                usort($upcomingBookings, function($a, $b) {
+                  if ($a['schedule_date'] === $b['schedule_date']) {
+                    return strcmp($a['start_time'], $b['start_time']);
+                  }
+                  return strcmp($a['schedule_date'], $b['schedule_date']);
+                });
+              }
+            ?>
+            <?php if (count($upcomingBookings) > 0): ?>
               <div class="row">
-                <?php foreach ($userBookings as $booking): ?>
+                <?php foreach ($upcomingBookings as $booking): ?>
                   <div class="col-md-6 mb-3">
                     <div class="schedule-item booked">
                       <div class="d-flex justify-content-between align-items-start">
@@ -487,7 +534,7 @@
             <?php else: ?>
               <div class="text-center py-4">
                 <i class="fas fa-calendar-times fa-3x text-muted mb-3"></i>
-                <p class="text-muted">You have no booked classes.</p>
+                <p class="text-muted">You have no upcoming booked classes.</p>
                 <p class="text-muted">Browse the classes above and book your first session!</p>
               </div>
             <?php endif; ?>
@@ -835,14 +882,8 @@ function createMonthCalendar(firstDate, schedules, userBookings) {
           );
           
           // Check if class is booked by anyone
-          const isBookedByAnyone = schedule.is_booked_by_anyone;
-          const bookedByName = schedule.booked_by_name;
-          const bookedByEmail = schedule.booked_by_email;
-          
-          // Check if class is full
-          const isFull = schedule.is_full || false;
-          const availableSpots = schedule.available_spots || 0;
-          const capacity = schedule.capacity || 20;
+          const isBookedByAnyone = schedule.is_booked_by_anyone || false;
+          const bookedByName = schedule.booked_by_name || null;
           
           let slotClass = 'schedule-slot';
           let slotText = startTime;
@@ -850,22 +891,15 @@ function createMonthCalendar(firstDate, schedules, userBookings) {
           let bookedByHtml = '';
           
           if (isBookedByAnyone) {
-            slotClass = 'schedule-slot booked';
+            slotClass = 'schedule-slot booked'; // will style as red
             slotText = `<i class="fas fa-check"></i> ${startTime} (Booked)`;
             onClick = '';
-            if (bookedByName || bookedByEmail) {
-              bookedByHtml = `<br><small class='text-muted'>Booked by: ${bookedByName ? bookedByName : bookedByEmail}</small>`;
+            if (bookedByName) {
+              bookedByHtml = `<br><small class='text-muted'>Booked by: ${bookedByName}</small>`;
             }
-          } else if (isBooked) {
-            slotClass = 'schedule-slot booked';
-            slotText = `<i class="fas fa-check"></i> ${startTime}`;
-            onClick = '';
-          } else if (isFull) {
-            slotClass = 'schedule-slot full';
-            slotText = `<i class="fas fa-times"></i> ${startTime}`;
-            onClick = '';
           } else {
-            slotText = `${startTime} (${availableSpots}/${capacity})`;
+            slotClass = 'schedule-slot available'; // will style as green
+            slotText = `${startTime} (Available)`;
           }
           
           calendarHtml += `
@@ -953,9 +987,8 @@ function showScheduleDetails(scheduleID, scheduleDate, startTime, endTime) {
     }
   }
 
-  const isFull = scheduleInfo ? scheduleInfo.is_full : false;
-  const availableSpots = scheduleInfo ? scheduleInfo.available_spots : 0;
-  const capacity = scheduleInfo ? scheduleInfo.capacity : 20;
+  const isBookedByAnyone = scheduleInfo ? scheduleInfo.is_booked_by_anyone : false;
+  const bookedByName = scheduleInfo ? scheduleInfo.booked_by_name : null;
 
   // Check membership and quota for the specific week of this schedule
   const membership = <?= json_encode($membership ?? null) ?>;
@@ -963,11 +996,6 @@ function showScheduleDetails(scheduleID, scheduleDate, startTime, endTime) {
   const hasMembership = membership && userMembership;
   const weeklyBookingsForSchedule = countWeeklyBookings(userBookings, scheduleDate);
   const hasQuota = hasMembership && weeklyBookingsForSchedule < membership.classLimit;
-
-  // Check if class is booked by anyone (other than current user)
-  const isBookedByAnyone = scheduleInfo ? scheduleInfo.is_booked_by_anyone : false;
-  const bookedByName = scheduleInfo ? scheduleInfo.booked_by_name : null;
-  const bookedByEmail = scheduleInfo ? scheduleInfo.booked_by_email : null;
 
   let buttonHtml = '';
   if (isBooked) {
@@ -980,14 +1008,7 @@ function showScheduleDetails(scheduleID, scheduleDate, startTime, endTime) {
     buttonHtml = `
       <div class="alert alert-danger">
         <i class="fas fa-times-circle"></i> This class has already been booked by someone else.<br>
-        <small>Booked by: ${bookedByName ? bookedByName : bookedByEmail}</small>
-      </div>
-    `;
-  } else if (isFull) {
-    buttonHtml = `
-      <div class="alert alert-danger">
-        <i class="fas fa-times-circle"></i> This class is full (${capacity}/${capacity} spots taken).
-        <br><small>Please try another time slot.</small>
+        <small>Booked by: ${bookedByName ? bookedByName : ''}</small>
       </div>
     `;
   } else if (!hasMembership) {
@@ -1008,7 +1029,7 @@ function showScheduleDetails(scheduleID, scheduleDate, startTime, endTime) {
       <form action="<?= site_url('/book-class') ?>" method="post">
         <input type="hidden" name="scheduleID" value="${scheduleID}">
         <button type="submit" class="btn btn-primary btn-sm">
-          <i class="fas fa-bookmark"></i> Book This Class (${availableSpots} spots left)
+          <i class="fas fa-bookmark"></i> Book This Class
         </button>
       </form>
     `;
@@ -1018,16 +1039,15 @@ function showScheduleDetails(scheduleID, scheduleDate, startTime, endTime) {
     <div class="schedule-details-popup">
       <div class="card">
         <div class="card-body">
+          <button type="button" class="btn-close float-end" aria-label="Close" onclick="document.querySelector('.schedule-details-popup').remove();"></button>
           <h6 class="card-title">
             <i class="fas fa-calendar-day"></i> Schedule Details
             ${isBooked ? '<span class="badge bg-success ms-2"><i class="fas fa-check"></i> Booked</span>' : ''}
-            ${isFull ? '<span class="badge bg-danger ms-2"><i class="fas fa-times"></i> Full</span>' : ''}
+            ${isBookedByAnyone ? '<span class="badge bg-danger ms-2"><i class="fas fa-times"></i> Booked</span>' : '<span class="badge bg-primary ms-2">Available</span>'}
           </h6>
           <p><strong>Date:</strong> ${formattedDate}</p>
           <p><strong>Time:</strong> ${startTimeFormatted} - ${endTimeFormatted}</p>
-          <p><strong>Capacity:</strong> ${availableSpots}/${capacity} spots available</p>
-          ${hasMembership ? `<p><strong>Weekly Quota for this week:</strong> ${weeklyBookingsForSchedule}/${membership.classLimit} classes used</p>` : ''}
-          ${hasMembership && weeklyBookingsForSchedule >= membership.classLimit ? `<p class="text-warning"><small><i class="fas fa-info-circle"></i> This week is full, but you can book classes for other weeks!</small></p>` : ''}
+          ${isBookedByAnyone ? `<p><strong>Booked by:</strong> ${bookedByName ? bookedByName : ''}</p>` : ''}
           ${buttonHtml}
         </div>
       </div>
@@ -1044,12 +1064,12 @@ function showScheduleDetails(scheduleID, scheduleDate, startTime, endTime) {
   document.body.insertAdjacentHTML('beforeend', detailsHtml);
   
   // Auto-remove popup after 5 seconds
-  setTimeout(() => {
-    const popup = document.querySelector('.schedule-details-popup');
-    if (popup) {
-      popup.remove();
-    }
-  }, 5000);
+  // setTimeout(() => {
+  //   const popup = document.querySelector('.schedule-details-popup');
+  //   if (popup) {
+  //     popup.remove();
+  //   }
+  // }, 5000);
 }
 </script>
 </body>

@@ -126,16 +126,12 @@ class MemberController extends BaseController
                 ->orderBy('start_time', 'ASC')
                 ->findAll();
             
-            // Add booking count and booked-by info for each schedule
+            // Add booking info for each schedule
             foreach ($schedules as &$schedule) {
                 $booking = $bookingModel
                     ->where('scheduleID', $schedule['scheduleID'])
                     ->where('status', 'confirmed')
                     ->first();
-                $bookingCount = $booking ? 1 : 0;
-                $schedule['booking_count'] = $bookingCount;
-                $schedule['available_spots'] = ($schedule['capacity'] ?? 20) - $bookingCount;
-                $schedule['is_full'] = $schedule['available_spots'] <= 0;
                 $schedule['is_booked_by_anyone'] = $booking ? true : false;
                 if ($booking) {
                     $bookedUser = $userModel->find($booking['userID']);
@@ -198,6 +194,15 @@ class MemberController extends BaseController
             return redirect()->back()->with('error', 'You have already booked this class.');
         }
 
+        // Check if the class schedule is already booked by anyone
+        $anyBooking = $bookingModel
+            ->where('scheduleID', $scheduleID)
+            ->where('status', 'confirmed')
+            ->first();
+        if ($anyBooking) {
+            return redirect()->back()->with('error', 'Sorry, this class has already been booked by another user.');
+        }
+
         // Get user's active membership
         $userMembership = $userMembershipModel
             ->where('userID', $userID)
@@ -243,18 +248,6 @@ class MemberController extends BaseController
         // Check if user has reached their weekly class limit
         if ($weeklyBookingCount >= $membership['classLimit']) {
             return redirect()->back()->with('error', 'You have reached your weekly class limit of ' . $membership['classLimit'] . ' classes. Please wait until next week to book more classes.');
-        }
-
-        // Check if the class is full
-        $currentBookings = $bookingModel
-            ->where('scheduleID', $scheduleID)
-            ->where('status', 'confirmed')
-            ->countAllResults();
-        
-        $capacity = $schedule['capacity'] ?? 20;
-        
-        if ($currentBookings >= $capacity) {
-            return redirect()->back()->with('error', 'Sorry, this class is already full. Please try another time slot.');
         }
 
         // Proceed with booking
